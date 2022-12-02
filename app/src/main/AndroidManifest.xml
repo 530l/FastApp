@@ -47,18 +47,22 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
+        <!-- 闪屏页 -->
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"
             android:exported="true">
+
+            <!-- 程序入口 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
     </application>
 

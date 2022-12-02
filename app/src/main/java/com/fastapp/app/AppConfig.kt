@@ -1,4 +1,4 @@
-package com.fastapp.utils
+package com.fastapp.app
 
 import com.fastapp.BuildConfig
 
