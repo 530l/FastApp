@@ -1,21 +1,21 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# 忽略警告
+#-ignorewarning
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# 混淆保护自己项目的部分代码以及引用的第三方jar包
+#-libraryjars libs/xxxxxxxxx.jar
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# 不混淆这个包下的类
+-keep class com.hjq.demo.http.api.** {
+    <fields>;
+}
+-keep class com.hjq.demo.http.response.** {
+    <fields>;
+}
+-keep class com.hjq.demo.http.model.** {
+    <fields>;
+}
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# 不混淆被 Log 注解的方法信息
+-keepclassmembernames class ** {
+    @com.hjq.demo.aop.Log <methods>;
+}

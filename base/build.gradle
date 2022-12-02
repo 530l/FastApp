@@ -2,31 +2,23 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 }
+apply from : '../common.gradle'
 
 android {
     namespace 'com.fast.base'
-    compileSdk 32
-
     defaultConfig {
-        minSdk 21
-        targetSdk 32
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+        // 模块混淆配置
+        consumerProguardFiles 'proguard-rules.pro'
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    sourceSets {
+        main {
+            // res 资源目录配置
+            res.srcDirs(
+                    'src/main/res',
+                    'src/main/res-sw',
+            )
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
     }
 }
 
@@ -43,20 +35,22 @@ dependencies {
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
     api 'com.squareup.okhttp3:okhttp:4.10.0'
     api 'com.github.liangjingkanji:Net:3.5.1'
-    //图片
-    api 'com.github.bumptech.glide:glide:4.13.2'
-    //adapter
-    api 'com.github.liangjingkanji:BRV:1.3.82'
-    //权限
-    api 'com.github.getActivity:XXPermissions:16.0'
-    //日志，回捞  推送指令
-    api "cn.huolala.glog.android:glog-android-static:1.0.0"
-    //工具类
-    api 'com.github.getActivity:ToastUtils:10.5'
+    api 'com.github.bumptech.glide:glide:4.13.2' //图片
+    api 'com.github.liangjingkanji:BRV:1.3.82' //adapter
+    api 'com.github.getActivity:XXPermissions:16.2'  //权限
+    api "cn.huolala.glog.android:glog-android-static:1.0.0" //日志，回捞  推送指令
+    //系列化存储，
+    api 'com.github.liangjingkanji:Serialize:1.3.2'
     api 'com.github.getActivity:GsonFactory:6.3'
     api 'com.google.code.gson:gson:2.9.1'
+    api "cn.therouter:router:1.1.3-beta1"//路由
+    //视图工具
+    api 'com.github.getActivity:ToastUtils:10.5'
     api 'com.github.getActivity:ShapeView:8.5'
-    api 'com.github.getActivity:TitleBar:9.5'
+    api 'com.github.getActivity:TitleBar:9.6'
+    api 'com.github.li-xiaojun:XPopup:2.9.16'
+    api 'com.geyifeng.immersionbar:immersionbar:3.2.2'
+    api 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.2'
 
 
 }
