@@ -8,10 +8,12 @@ import android.os.Build
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewModelStore
+import androidx.lifecycle.ViewModelStoreOwner
 import com.fastapp.R
-import com.fastapp.utils.activity.ActivityManager
 import com.fastapp.config.AppConfig
 import com.fastapp.config.GlideApp
+import com.fastapp.utils.activity.ActivityManager
 import com.fastapp.utils.glog.GlogUtils
 import com.fastapp.utils.log.DebugLoggerTree
 import com.fastapp.utils.titlebar.TitleBarStyle
@@ -22,11 +24,19 @@ import com.hjq.toast.ToastUtils
 import timber.log.Timber
 
 
-class FastApplication : Application() {
+class FastApplication : Application(), ViewModelStoreOwner {
+
+    lateinit var mAppViewModelStore: ViewModelStore
 
     override fun onCreate() {
         super.onCreate()
         initSdk(this)
+        mAppViewModelStore = ViewModelStore()
+
+    }
+
+    override fun getViewModelStore(): ViewModelStore {
+        return mAppViewModelStore
     }
 
     override fun onLowMemory() {
@@ -87,4 +97,6 @@ class FastApplication : Application() {
             }
         }
     }
+
+
 }
