@@ -1,4 +1,5 @@
 ext {
+
     // 测试服
     def SERVER_TYPE_TEST = "test"
     // 预发布服
@@ -6,23 +7,33 @@ ext {
     // 正式服
     def SERVER_TYPE_PRODUCT = "product"
 
-    def taskName = project.gradle.startParameter.taskNames[2]
+    //project.gradle.startParameter.taskNames 是gradle命令行参数，
+    // 如gradle clean app:deploy，那么命令行参数就是['clean', 'app:deploy']
+    def taskName = project.gradle.startParameter.taskNames[0]
+
+//    BuildVariants  debug  preview  release
+//    taskName----》》》》 :app:assembleDebug
+//    taskName----》》》》 :app:assemblePreview
+//    taskName----》》》》 :app:assembleRelease
+    println "taskName----》》》》 " + taskName
+
     if (taskName == null) {
         taskName = ""
     }
     // 打印当前执行的任务名称
     println "GradleLog TaskNameOutput " + taskName
 
-    def serverType = SERVER_TYPE_PRODUCT
-
-    if (taskName.endsWith("Debug")) {
+    def serverType = SERVER_TYPE_PRODUCT//默认是正式服
+    if (taskName.endsWith("Debug")) {// 测试服
         serverType = SERVER_TYPE_TEST
-    } else if (taskName.endsWith("Preview")) {
+    } else if (taskName.endsWith("Preview")) {// 预发布服
         serverType = SERVER_TYPE_PREVIEW
     }
 
     // 从 Gradle 命令中读取参数配置，例如：./gradlew assembleRelease -P ServerType="test"
-    if (project.hasProperty("ServerType")) {
+    def hasServerType = project.hasProperty("ServerType")
+    println "GradleLog hasServerType---" + hasServerType
+    if (hasServerType) {
         serverType = project.properties["ServerType"]
     }
 
@@ -40,7 +51,7 @@ ext {
     // 微信 Secret
     WX_APP_SECRET = "0c8c7cf831dd135a32b3e395ea459b5a"
 
-    switch(serverType) {
+    switch (serverType) {
         case SERVER_TYPE_TEST:
         case SERVER_TYPE_PREVIEW:
             LOG_ENABLE = true
