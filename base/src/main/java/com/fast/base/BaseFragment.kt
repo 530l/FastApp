@@ -15,7 +15,6 @@ import androidx.lifecycle.Lifecycle
 import com.fast.base.action.*
 
 
-
 abstract class BaseFragment<A : BaseActivity> : Fragment(),
     HandlerAction, ClickAction, BundleAction, KeyboardAction {
 
@@ -23,7 +22,7 @@ abstract class BaseFragment<A : BaseActivity> : Fragment(),
     private var activity: A? = null
 
     /** 根布局 */
-    private var rootView: View? = null
+    var rootView: View? = null
 
     /** 当前是否加载过 */
     private var loading: Boolean = false
@@ -35,12 +34,15 @@ abstract class BaseFragment<A : BaseActivity> : Fragment(),
         activity = requireActivity() as A
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        if (getLayoutId() <= 0) {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        loading = false
+        if (rootView == null) {
             return null
         }
-        loading = false
-        rootView = inflater.inflate(getLayoutId(), container, false)
         initView()
         return rootView
     }
@@ -115,10 +117,6 @@ abstract class BaseFragment<A : BaseActivity> : Fragment(),
         return null
     }
 
-    /**
-     * 获取布局 ID
-     */
-    protected abstract fun getLayoutId(): Int
 
     /**
      * 初始化控件
@@ -151,7 +149,10 @@ abstract class BaseFragment<A : BaseActivity> : Fragment(),
     /**
      * startActivityForResult 方法优化
      */
-    open fun startActivityForResult(clazz: Class<out Activity>, callback: BaseActivity.OnActivityCallback?) {
+    open fun startActivityForResult(
+        clazz: Class<out Activity>,
+        callback: BaseActivity.OnActivityCallback?
+    ) {
         activity?.startActivityForResult(clazz, callback)
     }
 
@@ -159,7 +160,11 @@ abstract class BaseFragment<A : BaseActivity> : Fragment(),
         activity?.startActivityForResult(intent, null, callback)
     }
 
-    open fun startActivityForResult(intent: Intent, options: Bundle?, callback: BaseActivity.OnActivityCallback?) {
+    open fun startActivityForResult(
+        intent: Intent,
+        options: Bundle?,
+        callback: BaseActivity.OnActivityCallback?
+    ) {
         activity?.startActivityForResult(intent, options, callback)
     }
 
