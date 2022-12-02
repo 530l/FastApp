@@ -1,4 +1,4 @@
-package com.fastapp.app
+package com.fastapp.base
 
 import android.os.Bundle
 import android.view.*
@@ -15,8 +15,9 @@ import com.hjq.bar.TitleBar
 /**
  *  带标题栏的 Fragment 业务基类
  */
-abstract class BaseBindingTitleBarFragment<A : BaseBindingActivity<VB>, VB : ViewBinding> : BaseFragment<A>(),
-    FragmentBinding<VB> by FragmentBindingDelegate(), ToastAction, TitleBarAction {
+abstract class BaseBindingTitleBarFragment<A : BaseBindingActivity<*>, VB : ViewBinding>
+    : BaseFragment<A>(), FragmentBinding<VB> by FragmentBindingDelegate(), ToastAction,
+    TitleBarAction {
 
     /** 标题栏对象 */
     private var titleBar: TitleBar? = null
@@ -102,4 +103,5 @@ abstract class BaseBindingTitleBarFragment<A : BaseBindingActivity<VB>, VB : Vie
         }
         return titleBar
     }
+
 }

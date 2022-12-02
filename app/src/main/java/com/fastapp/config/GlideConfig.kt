@@ -1,4 +1,4 @@
-package com.fastapp.app
+package com.fastapp.config
 
 import android.content.Context
 import com.bumptech.glide.Glide

@@ -1,4 +1,4 @@
-package com.fastapp.app
+package com.fastapp.base
 
 import android.app.Activity
 import android.app.Application
@@ -9,7 +9,9 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import com.fastapp.R
-import com.fastapp.utils.crash.CrashHandler
+import com.fastapp.utils.activity.ActivityManager
+import com.fastapp.config.AppConfig
+import com.fastapp.config.GlideApp
 import com.fastapp.utils.glog.GlogUtils
 import com.fastapp.utils.log.DebugLoggerTree
 import com.fastapp.utils.titlebar.TitleBarStyle
@@ -20,7 +22,7 @@ import com.hjq.toast.ToastUtils
 import timber.log.Timber
 
 
-class AppApplication : Application() {
+class FastApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -53,7 +55,7 @@ class AppApplication : Application() {
             // 设置 Toast 拦截器
             ToastUtils.setInterceptor(ToastLogInterceptor())
             // 本地异常捕捉
-            CrashHandler.register(application)
+//            CrashHandler.register(application)
             // Activity 栈管理初始化
             ActivityManager.getInstance().init(application)
             // 初始化日志打印

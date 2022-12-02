@@ -1,4 +1,4 @@
-package com.fastapp.app
+package com.fastapp.base
 
 
 import android.os.Bundle

@@ -10,6 +10,11 @@
     <com.hjq.bar.TitleBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="标题" />
+        app:title="CopyActivity" />
 
+
+    <FrameLayout
+        android:id="@+id/mContainerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>

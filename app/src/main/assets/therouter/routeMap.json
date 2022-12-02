@@ -5,5 +5,19 @@
     "action": "abc",
     "description": "",
     "params": {}
+  },
+  {
+    "path": "http://fastapp/copytitle",
+    "className": "com.fastapp.ui.activity.CopyTitleActivity",
+    "action": "abc",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "http://fastapp/copy",
+    "className": "com.fastapp.ui.activity.CopyActivity",
+    "action": "abc",
+    "description": "",
+    "params": {}
   }
 ]

@@ -3,7 +3,7 @@ package com.fastapp.utils.crash
 import android.app.*
 import android.content.*
 import android.os.Process
-import com.fastapp.app.AppConfig
+import com.fastapp.config.AppConfig
 
 
 /**

@@ -1,7 +1,7 @@
 package com.fastapp.ui.fragment
 
 import com.fast.base.BaseActivity
-import com.fastapp.app.BaseBindingFragment
+import com.fastapp.base.BaseBindingFragment
 import com.fastapp.databinding.CopyFragmentBinding
 
 class CopyFragment : BaseBindingFragment<BaseActivity, CopyFragmentBinding>() {
@@ -18,6 +18,6 @@ class CopyFragment : BaseBindingFragment<BaseActivity, CopyFragmentBinding>() {
     }
 
     override fun initData() {
-        TODO("Not yet implemented")
+
     }
 }

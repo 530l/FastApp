@@ -1,7 +1,7 @@
 package com.fastapp.utils.toast
 
 import com.fastapp.action.ToastAction
-import com.fastapp.app.AppConfig
+import com.fastapp.config.AppConfig
 import com.hjq.toast.ToastUtils
 import com.hjq.toast.config.IToastInterceptor
 import timber.log.Timber

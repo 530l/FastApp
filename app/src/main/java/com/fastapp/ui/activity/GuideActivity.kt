@@ -1,6 +1,6 @@
 package com.fastapp.ui.activity
 
-import com.fastapp.app.BaseBindingActivity
+import com.fastapp.base.BaseBindingActivity
 import com.fastapp.databinding.GuideActivityBinding
 import com.fastapp.utils.glog.GlogUtils
 import com.therouter.router.Route

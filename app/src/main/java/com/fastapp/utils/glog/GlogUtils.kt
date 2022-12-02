@@ -1,7 +1,6 @@
 package com.fastapp.utils.glog
 
-import com.fastapp.app.AppApplication
-import com.fastapp.app.AppConfig
+import com.fastapp.config.AppConfig
 import com.therouter.getApplicationContext
 import glog.android.Glog
 import timber.log.Timber
