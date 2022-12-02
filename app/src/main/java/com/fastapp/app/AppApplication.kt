@@ -10,6 +10,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import com.fastapp.R
 import com.fastapp.utils.crash.CrashHandler
+import com.fastapp.utils.glog.GlogUtils
 import com.fastapp.utils.log.DebugLoggerTree
 import com.fastapp.utils.titlebar.TitleBarStyle
 import com.fastapp.utils.toast.ToastStyle
@@ -39,7 +40,6 @@ class AppApplication : Application() {
     }
 
     companion object {
-
         /**
          * 初始化一些第三方框架
          */
@@ -60,6 +60,8 @@ class AppApplication : Application() {
             if (AppConfig.isLogEnable()) {
                 Timber.plant(DebugLoggerTree())
             }
+            //Glog
+            GlogUtils.init()
             // 注册网络状态变化监听
             val connectivityManager: ConnectivityManager? = ContextCompat.getSystemService(
                 application,

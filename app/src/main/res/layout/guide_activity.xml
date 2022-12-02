@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.activity.GuideActivity">
 
     <com.hjq.bar.TitleBar
@@ -12,5 +13,17 @@
         app:title="我是标题"
         app:titleSize="@dimen/sp_14" />
 
+    <com.hjq.shape.view.ShapeTextView
+        android:id="@+id/writeGladTv"
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="@dimen/dp_30"
+        android:layout_margin="@dimen/dp_30"
+        app:shape_solidColor="@color/black20" />
 
-</FrameLayout>
+    <com.hjq.shape.view.ShapeTextView
+        android:id="@+id/readGladTv"
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="@dimen/dp_30"
+        android:layout_margin="@dimen/dp_30"
+        app:shape_solidColor="@color/yellow" />
+</LinearLayout>
