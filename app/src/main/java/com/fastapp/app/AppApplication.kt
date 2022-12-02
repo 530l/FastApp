@@ -1,4 +1,4 @@
-package com.fastapp
+package com.fastapp.app
 
 import android.app.Application
 

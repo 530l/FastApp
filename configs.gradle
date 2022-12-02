@@ -30,13 +30,6 @@ ext {
         serverType = SERVER_TYPE_PREVIEW
     }
 
-    // 从 Gradle 命令中读取参数配置，例如：./gradlew assembleRelease -P ServerType="test"
-    def hasServerType = project.hasProperty("ServerType")
-    println "GradleLog hasServerType---" + hasServerType
-    if (hasServerType) {
-        serverType = project.properties["ServerType"]
-    }
-
     // 打印当前服务器配置
     println "GradleLog ServerTypeOutput " + serverType
 

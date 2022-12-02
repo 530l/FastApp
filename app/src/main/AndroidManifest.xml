@@ -15,7 +15,7 @@
 
 
     <application
-        android:name=".AppApplication"
+        android:name=".app.AppApplication"
         android:allowBackup="false"
         android:icon="@mipmap/launcher_ic"
         android:label="${app_name}"
