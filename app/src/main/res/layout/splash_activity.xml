@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@drawable/ic_splash"
+    android:id="@+id/splash_layout"
     android:orientation="vertical">
 
 

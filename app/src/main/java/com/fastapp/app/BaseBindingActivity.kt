@@ -2,8 +2,10 @@ package com.fastapp.app
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
 import androidx.annotation.StringRes
+import androidx.viewbinding.ViewBinding
+import com.dylanc.viewbinding.base.ActivityBinding
+import com.dylanc.viewbinding.base.ActivityBindingDelegate
 import com.fast.base.BaseActivity
 import com.fastapp.R
 import com.fastapp.action.TitleBarAction
@@ -11,8 +13,9 @@ import com.fastapp.action.ToastAction
 import com.gyf.immersionbar.ImmersionBar
 import com.hjq.bar.TitleBar
 
-
-abstract class AppActivity : BaseActivity(), ToastAction, TitleBarAction {
+abstract class BaseBindingActivity <VB : ViewBinding>:
+    BaseActivity(), ToastAction, TitleBarAction,
+    ActivityBinding<VB> by ActivityBindingDelegate() {
 
     /** 标题栏对象 */
     private var titleBar: TitleBar? = null
@@ -20,16 +23,19 @@ abstract class AppActivity : BaseActivity(), ToastAction, TitleBarAction {
     /** 状态栏沉浸 */
     private var immersionBar: ImmersionBar? = null
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentViewWithBinding()
+        initActivity()
+    }
+
     override fun initLayout() {
         super.initLayout()
-
         val titleBar = getTitleBar()
         titleBar?.setOnTitleBarListener(this)
-
         // 初始化沉浸式状态栏
         if (isStatusBarEnabled()) {
             getStatusBarConfig().init()
-
             // 设置标题栏沉浸
             if (titleBar != null) {
                 ImmersionBar.setTitleBar(this, titleBar)

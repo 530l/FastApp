@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "path": "http://kymjs.com/therouter/home",
+    "className": "com.fastapp.ui.activity.GuideActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "http://fastapp/guide",
+    "className": "com.fastapp.ui.activity.GuideActivity",
+    "action": "abc",
+    "description": "",
+    "params": {}
+  }
+]

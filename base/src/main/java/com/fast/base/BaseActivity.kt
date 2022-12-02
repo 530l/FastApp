@@ -28,10 +28,7 @@ abstract class BaseActivity : AppCompatActivity(), ActivityAction,
     /** Activity 回调集合 */
     private val activityCallbacks: SparseArray<OnActivityCallback?> by lazy { SparseArray(1) }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        initActivity()
-    }
+
 
     protected open fun initActivity() {
         initLayout()
@@ -39,10 +36,6 @@ abstract class BaseActivity : AppCompatActivity(), ActivityAction,
         initData()
     }
 
-    /**
-     * 获取布局 ID
-     */
-    protected abstract fun getLayoutId(): Int
 
     /**
      * 初始化控件
@@ -58,10 +51,7 @@ abstract class BaseActivity : AppCompatActivity(), ActivityAction,
      * 初始化布局
      */
     protected open fun initLayout() {
-        if (getLayoutId() > 0) {
-            setContentView(getLayoutId())
-            initSoftKeyboard()
-        }
+        initSoftKeyboard()
     }
 
     /**
