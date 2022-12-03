@@ -25,6 +25,7 @@ import com.fastapp.config.glide.GlideApp
 import com.fastapp.interceptor.MyRequestInterceptor
 import com.fastapp.utils.activity.ActivityManager
 import com.hjq.bar.TitleBar
+import com.hjq.gson.factory.GsonFactory
 import com.hjq.toast.ToastLogInterceptor
 import com.hjq.toast.ToastUtils
 import com.scwang.smart.refresh.footer.ClassicsFooter
@@ -32,6 +33,7 @@ import com.scwang.smart.refresh.header.MaterialHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import okhttp3.Cache
 import java.util.concurrent.TimeUnit
+
 
 class FastApplication : Application() {
 
@@ -57,6 +59,10 @@ class FastApplication : Application() {
         GlogConfig.init()//Glog
         initNet(application)//网络
         initConnectivityManager(application)//手机网络监听
+        // 设置 Json 解析容错监听
+        GsonFactory.setJsonCallback { typeToken, fieldName, jsonToken ->
+            LogCat.e("GsonFactory", "类型解析异常：$typeToken#$fieldName，后台返回的类型为：$jsonToken")
+        }
     }
 
 
