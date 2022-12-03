@@ -21,6 +21,7 @@ import com.drake.statelayout.StateConfig
 import com.drake.tooltip.dialog.BubbleDialog
 import com.fastapp.R
 import com.fastapp.config.*
+import com.fastapp.config.glide.GlideApp
 import com.fastapp.interceptor.MyRequestInterceptor
 import com.fastapp.utils.activity.ActivityManager
 import com.hjq.bar.TitleBar

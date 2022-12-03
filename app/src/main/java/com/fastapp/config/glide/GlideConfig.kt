@@ -1,4 +1,4 @@
-package com.fastapp.config
+package com.fastapp.config.glide
 
 import android.content.Context
 import com.bumptech.glide.Glide
@@ -9,11 +9,14 @@ import com.bumptech.glide.load.engine.bitmap_recycle.LruBitmapPool
 import com.bumptech.glide.load.engine.cache.DiskLruCacheWrapper
 import com.bumptech.glide.load.engine.cache.LruResourceCache
 import com.bumptech.glide.load.engine.cache.MemorySizeCalculator
+import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.module.AppGlideModule
 import com.bumptech.glide.request.RequestOptions
+import com.drake.net.NetConfig
 import com.fastapp.R
 
 import java.io.File
+import java.io.InputStream
 
 /**
  * desc: Glide 全局配置
@@ -22,7 +25,6 @@ import java.io.File
 class GlideConfig : AppGlideModule() {
 
     companion object {
-
         /** 本地图片缓存文件最大值 */
         private const val IMAGE_DISK_CACHE_MAX_SIZE: Int = 500 * 1024 * 1024
     }
@@ -52,17 +54,19 @@ class GlideConfig : AppGlideModule() {
         builder.setBitmapPool(LruBitmapPool(customBitmapPoolSize))
         builder.setDefaultRequestOptions(
             RequestOptions()
-            // 设置默认加载中占位图
-            .placeholder(R.drawable.update_app_top_bg)
-            // 设置默认加载出错占位图
-            .error(R.drawable.update_app_top_bg)
+                // 设置默认加载中占位图
+                .placeholder(R.drawable.logo_big_ic)
+                // 设置默认加载出错占位图
+                .error(R.drawable.logo_big_ic)
         )
     }
 
     override fun registerComponents(context: Context, glide: Glide, registry: Registry) {
         // Glide 默认使用的是 HttpURLConnection 来做网络请求，这里切换成更高效的 OkHttp
-//        registry.replace(GlideUrl::class.java, InputStream::class.java,
-//            OkHttpLoader.Factory(EasyConfig.getInstance().client))
+        registry.replace(
+            GlideUrl::class.java, InputStream::class.java,
+            OkHttpLoader.Factory(NetConfig.okHttpClient)
+        )
     }
 
     override fun isManifestParsingEnabled(): Boolean {
