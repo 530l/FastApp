@@ -22,7 +22,7 @@ import com.drake.tooltip.dialog.BubbleDialog
 import com.fastapp.R
 import com.fastapp.config.*
 import com.fastapp.config.glide.GlideApp
-import com.fastapp.interceptor.MyRequestInterceptor
+import com.fastapp.config.interceptor.MyRequestInterceptor
 import com.fastapp.utils.ActivityManager
 import com.hjq.bar.TitleBar
 import com.hjq.gson.factory.GsonFactory

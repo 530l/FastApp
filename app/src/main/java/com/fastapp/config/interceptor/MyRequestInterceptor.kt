@@ -1,4 +1,4 @@
-package com.fastapp.interceptor
+package com.fastapp.config.interceptor
 
 import com.drake.net.interceptor.RequestInterceptor
 import com.drake.net.request.BaseRequest

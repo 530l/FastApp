@@ -1,5 +1,5 @@
 
-package com.fastapp.interceptor
+package com.fastapp.config.interceptor
 
 import com.drake.net.Net
 import com.drake.tooltip.toast
