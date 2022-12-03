@@ -1,17 +1,20 @@
 package com.fastapp.vm
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import com.hjq.toast.ToastUtils
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
+import com.kunminx.architecture.domain.message.MutableResult
 
-@HiltViewModel
-class DetailedTaskViewModel @Inject constructor(
-    private val savedStateHandle: SavedStateHandle
-) : ViewModel() {
-    //...
+class TaskViewModel : ViewModel() {
+
+
+    val mutableLiveData = MutableResult<String?>()
+
+    private var age = 0
+
     init {
-        ToastUtils.show("11231231312")
+        age = 20
+    }
+
+     fun show() {
+        mutableLiveData.value = "age=${20}"
     }
 }

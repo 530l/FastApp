@@ -1,14 +1,14 @@
 package com.fastapp.ui.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import com.fast.base.BaseActivity
 import com.fastapp.base.BaseBindingFragment
 import com.fastapp.databinding.CopyFragmentBinding
-import com.fastapp.vm.DetailedTaskViewModel
-import dagger.hilt.android.AndroidEntryPoint
+import com.fastapp.vm.TaskViewModel
+import com.hjq.toast.ToastUtils
+import timber.log.Timber
 
-@AndroidEntryPoint
 class CopyFragment : BaseBindingFragment<BaseActivity, CopyFragmentBinding>() {
 
     companion object {
@@ -21,13 +21,15 @@ class CopyFragment : BaseBindingFragment<BaseActivity, CopyFragmentBinding>() {
         }
     }
 
-    private val viewModel : DetailedTaskViewModel by viewModels()
-
 
     override fun initView() {
-
-
-
+        //共享viewModel
+        val viewModel: TaskViewModel by activityViewModels()
+        viewModel.mutableLiveData.observe(viewLifecycleOwner) {
+            ToastUtils.show(it)
+        }
+        viewModel.show()
+        Timber.i("%s", viewModel)
     }
 
     override fun initData() {

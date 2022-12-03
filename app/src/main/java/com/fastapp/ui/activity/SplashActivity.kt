@@ -1,16 +1,12 @@
 package com.fastapp.ui.activity
 
-import android.animation.*
-import android.annotation.SuppressLint
-import android.view.*
-import androidx.activity.viewModels
+
 import com.drake.net.time.Interval
 import com.fastapp.base.BaseBindingActivity
 import com.fastapp.databinding.SplashActivityBinding
 import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ImmersionBar
 import com.therouter.TheRouter
-import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -18,7 +14,6 @@ import java.util.concurrent.TimeUnit
 /**
  * 闪屏界面
  */
-@AndroidEntryPoint
 class SplashActivity : BaseBindingActivity<SplashActivityBinding>() {
 
 

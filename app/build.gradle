@@ -3,7 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'therouter'
     id 'kotlin-kapt'
-    id 'com.google.dagger.hilt.android'
 }
 apply from: '../common.gradle'
 
@@ -132,8 +131,6 @@ dependencies {
     implementation project(path: ':base')
     kapt "cn.therouter:apt:1.1.3-beta1"
     kapt "com.github.bumptech.glide:compiler:4.13.2"
-    implementation "com.google.dagger:hilt-android:2.44"
-    kapt "com.google.dagger:hilt-android-compiler:2.44"
 }
 
 // Allow references to generated code 允许引用生成的代码

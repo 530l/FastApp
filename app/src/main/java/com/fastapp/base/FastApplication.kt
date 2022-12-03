@@ -19,10 +19,8 @@ import com.fastapp.config.ToastConfig
 import com.hjq.bar.TitleBar
 import com.hjq.toast.ToastLogInterceptor
 import com.hjq.toast.ToastUtils
-import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
-@HiltAndroidApp
 class FastApplication : Application() {
 
     override fun onCreate() {
