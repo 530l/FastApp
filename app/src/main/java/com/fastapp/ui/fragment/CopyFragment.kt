@@ -2,6 +2,7 @@ package com.fastapp.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import com.drake.logcat.LogCat
 import com.fast.base.BaseActivity
 import com.fastapp.base.BaseBindingFragment
@@ -21,20 +22,19 @@ class CopyFragment : BaseBindingFragment<BaseActivity, CopyFragmentBinding>() {
         }
     }
 
+    private val viewModel: TaskViewModel by viewModels() // 创建ViewModel
 
     override fun initView() {
         //共享viewModel
-        val viewModel: TaskViewModel by activityViewModels()
+//        val viewModel: TaskViewModel by activityViewModels()
         viewModel.mutableLiveData.observe(viewLifecycleOwner) {
             ToastUtils.show(it)
         }
         viewModel.show()
         //view-model，mutableLiveData 没有回收，viewLifecycleOwner 回收了，
-        LogCat.i(
-            "viewModel add = $viewModel  " +
-                    "viewLifecycleOwner add = $viewLifecycleOwner" +
-                    "mutableLiveData add = ${viewModel.mutableLiveData}"
-        )
+        LogCat.i("viewModel add = $viewModel ")
+        LogCat.i("viewLifecycleOwner add = $viewLifecycleOwner")
+        LogCat.i("mutableLiveData add = ${viewModel.mutableLiveData}")
     }
 
     override fun initData() {

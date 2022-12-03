@@ -23,9 +23,11 @@ android {
 }
 
 dependencies {
-    //网络
+    //网络// 通知栏监听网络日志 // 吐司工具
     api 'com.squareup.okhttp3:okhttp:4.10.0'
-    api 'com.github.liangjingkanji:Net:3.5.1'
+    api 'com.github.liangjingkanji:Net:3.5.2'
+    api "com.github.chuckerteam.chucker:library:3.5.2"
+    api "com.github.liangjingkanji:Tooltip:1.2.2"
     //图片
     api 'com.github.bumptech.glide:glide:4.13.2'
     //adapter

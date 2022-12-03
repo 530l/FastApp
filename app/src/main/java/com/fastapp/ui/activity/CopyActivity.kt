@@ -13,6 +13,7 @@ import com.therouter.router.Route
 @Route(path = "http://fastapp/copy", action = "abc")
 class CopyActivity : BaseBindingActivity<CopyActivityBinding>() {
 
+//    lateinit var viewModel: TaskViewModel
 
     override fun initView() {
         val copyTitleFragment = CopyFragment.newInstance()
@@ -21,12 +22,11 @@ class CopyActivity : BaseBindingActivity<CopyActivityBinding>() {
         mTransaction.commit()
     }
 
-    override fun onLeftClick(titleBar: TitleBar?) {
-        finish()
+    override fun initData() {
+//        viewModel = ViewModelProvider(this)[TaskViewModel::class.java]
     }
 
-
-    override fun initData() {
-        ViewModelProvider(this)[TaskViewModel::class.java]
+    override fun onLeftClick(titleBar: TitleBar?) {
+        finish()
     }
 }
