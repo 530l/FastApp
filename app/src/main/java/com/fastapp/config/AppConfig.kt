@@ -1,5 +1,6 @@
 package com.fastapp.config
 
+
 import com.fastapp.BuildConfig
 
 
@@ -60,4 +61,7 @@ object AppConfig {
     fun getHostUrl(): String {
         return BuildConfig.HOST_URL
     }
+
+
+
 }

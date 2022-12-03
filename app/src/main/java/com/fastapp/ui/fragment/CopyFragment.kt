@@ -43,5 +43,7 @@ class CopyFragment : BaseBindingFragment<BaseActivity, CopyFragmentBinding>() {
 //            .transform(MultiTransformation(CenterCrop(), CircleCrop()))
             .into(binding.image)
 
+        binding.recyclerView
+
     }
 }

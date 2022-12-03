@@ -5,6 +5,10 @@ pluginManagement {
         mavenCentral()
         maven { url 'https://jitpack.io' }
         maven { url 'https://www.jitpack.io' }
+        // 友盟远程仓库：https://info.umeng.com/detail?id=443&cateId=1
+        maven { url 'https://repo1.maven.org/maven2' }
+        // 阿里云云效仓库（Gradle 插件）：https://maven.aliyun.com/mvn/guide
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
     }
 }
 dependencyResolutionManagement {
@@ -14,9 +18,12 @@ dependencyResolutionManagement {
         mavenCentral()
         maven { url 'https://jitpack.io' }
         maven { url 'https://www.jitpack.io' }
+        // 友盟远程仓库：https://info.umeng.com/detail?id=443&cateId=1
+        maven { url 'https://repo1.maven.org/maven2' }
 
     }
 }
 rootProject.name = "FastApp"
 include ':app'
 include ':base'
+//include ':umeng'

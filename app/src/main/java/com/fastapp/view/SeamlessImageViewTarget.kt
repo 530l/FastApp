@@ -9,6 +9,7 @@ import com.bumptech.glide.request.transition.Transition
 
 /**
  * Glide 加载图片闪烁问题解决
+ * https://juejin.cn/post/7034417406244028423
  */
 abstract class SeamlessImageViewTarget<Z>(view: ImageView) : CustomViewTarget<ImageView, Z>(view),
     Transition.ViewAdapter {

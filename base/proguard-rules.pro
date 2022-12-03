@@ -111,3 +111,7 @@
 -dontwarn com.lxj.xpopup.widget.**
 -keep class com.lxj.xpopup.widget.**{*;}
 #xpopup
+
+-keep class com.luck.picture.lib.** { *; }
+
+

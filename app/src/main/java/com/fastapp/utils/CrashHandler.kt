@@ -1,4 +1,4 @@
-package com.fastapp.utils.crash
+package com.fastapp.utils
 
 import android.app.*
 import android.content.*

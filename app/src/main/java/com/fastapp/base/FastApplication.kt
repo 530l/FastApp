@@ -23,7 +23,7 @@ import com.fastapp.R
 import com.fastapp.config.*
 import com.fastapp.config.glide.GlideApp
 import com.fastapp.interceptor.MyRequestInterceptor
-import com.fastapp.utils.activity.ActivityManager
+import com.fastapp.utils.ActivityManager
 import com.hjq.bar.TitleBar
 import com.hjq.gson.factory.GsonFactory
 import com.hjq.toast.ToastLogInterceptor
@@ -31,6 +31,8 @@ import com.hjq.toast.ToastUtils
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.MaterialHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
+import com.tencent.mmkv.MMKV
+import com.tencent.mmkv.MMKVLogLevel
 import okhttp3.Cache
 import java.util.concurrent.TimeUnit
 
@@ -47,7 +49,6 @@ class FastApplication : Application() {
         initSdk(this)
     }
 
-
     private fun initSdk(application: Application) {
         initSmartRefreshLayout()//缺省，刷新控件
         TitleBar.setDefaultStyle(TitleBarConfig())// 设置标题栏初始化器
@@ -59,12 +60,8 @@ class FastApplication : Application() {
         GlogConfig.init()//Glog
         initNet(application)//网络
         initConnectivityManager(application)//手机网络监听
-        // 设置 Json 解析容错监听
-        GsonFactory.setJsonCallback { typeToken, fieldName, jsonToken ->
-            LogCat.e("GsonFactory", "类型解析异常：$typeToken#$fieldName，后台返回的类型为：$jsonToken")
-        }
+        initPreferenceHolder()
     }
-
 
     private fun initSmartRefreshLayout() {
         // 全局缺省页配置 [https://github.com/liangjingkanji/StateLayout]
@@ -154,6 +151,13 @@ class FastApplication : Application() {
         }
     }
 
+    private fun initPreferenceHolder() {
+        // 设置 Json 解析容错监听
+        GsonFactory.setJsonCallback { typeToken, fieldName, jsonToken ->
+            LogCat.e("GsonFactory", "类型解析异常：$typeToken#$fieldName，后台返回的类型为：$jsonToken")
+        }
+        MMKV.initialize(this, cacheDir.absolutePath, MMKVLogLevel.LevelInfo)
+    }
 
     override fun onLowMemory() {
         super.onLowMemory()

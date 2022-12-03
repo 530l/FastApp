@@ -1,4 +1,4 @@
-package com.fastapp.utils.click
+package com.fastapp.utils
 
 import android.os.SystemClock
 
