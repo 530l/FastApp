@@ -1,8 +1,8 @@
 package com.fastapp.config
 
+import com.drake.logcat.LogCat
 import com.therouter.getApplicationContext
 import glog.android.Glog
-import timber.log.Timber
 import java.io.IOException
 
 object GlogConfig {
@@ -55,7 +55,7 @@ object GlogConfig {
                         }
                         val outBuffer = ByteArray(n)
                         System.arraycopy(inBuffer, 0, outBuffer, 0, n)
-                        Timber.e(String(outBuffer))// 反序列化数据
+                        LogCat.e(String(outBuffer))// 反序列化数据
                     }
                 }
             } catch (e: IOException) {

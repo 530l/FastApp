@@ -2,12 +2,12 @@ package com.fastapp.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.activityViewModels
+import com.drake.logcat.LogCat
 import com.fast.base.BaseActivity
 import com.fastapp.base.BaseBindingFragment
 import com.fastapp.databinding.CopyFragmentBinding
 import com.fastapp.vm.TaskViewModel
 import com.hjq.toast.ToastUtils
-import timber.log.Timber
 
 class CopyFragment : BaseBindingFragment<BaseActivity, CopyFragmentBinding>() {
 
@@ -29,7 +29,12 @@ class CopyFragment : BaseBindingFragment<BaseActivity, CopyFragmentBinding>() {
             ToastUtils.show(it)
         }
         viewModel.show()
-        Timber.i("%s", viewModel)
+        //view-model，mutableLiveData 没有回收，viewLifecycleOwner 回收了，
+        LogCat.i(
+            "viewModel add = $viewModel  " +
+                    "viewLifecycleOwner add = $viewLifecycleOwner" +
+                    "mutableLiveData add = ${viewModel.mutableLiveData}"
+        )
     }
 
     override fun initData() {

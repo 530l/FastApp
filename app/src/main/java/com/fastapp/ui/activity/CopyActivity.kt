@@ -15,7 +15,6 @@ class CopyActivity : BaseBindingActivity<CopyActivityBinding>() {
 
 
     override fun initView() {
-        val mainViewModel = ViewModelProvider(this)[TaskViewModel::class.java]
         val copyTitleFragment = CopyFragment.newInstance()
         val mTransaction = supportFragmentManager.beginTransaction()
         mTransaction.add(R.id.mContainerView, copyTitleFragment)
@@ -28,6 +27,6 @@ class CopyActivity : BaseBindingActivity<CopyActivityBinding>() {
 
 
     override fun initData() {
-
+        ViewModelProvider(this)[TaskViewModel::class.java]
     }
 }

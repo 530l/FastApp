@@ -1,14 +1,13 @@
 package com.fastapp.ui.activity
 
 
+import com.drake.logcat.LogCat
 import com.drake.net.time.Interval
 import com.fastapp.base.BaseBindingActivity
 import com.fastapp.databinding.SplashActivityBinding
 import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ImmersionBar
 import com.therouter.TheRouter
-import timber.log.Timber
-import java.util.*
 import java.util.concurrent.TimeUnit
 
 /**
@@ -18,8 +17,8 @@ class SplashActivity : BaseBindingActivity<SplashActivityBinding>() {
 
 
     override fun initView() {
-        Timber.i("%s", "hhahah")
-        Timber.e("The activity has been destroyed and permission requests cannot be made")
+        LogCat.i("%s", "hhahah")
+        LogCat.e("The activity has been destroyed and permission requests cannot be made")
         Interval(1, 1, TimeUnit.SECONDS, 2, 0).finish {
 //            TheRouter.build("http://fastapp/guide").navigation(this@SplashActivity)
             TheRouter.build("http://fastapp/copy").navigation(this@SplashActivity)

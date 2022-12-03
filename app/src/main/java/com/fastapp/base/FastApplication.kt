@@ -8,18 +8,17 @@ import android.os.Build
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
+import com.drake.logcat.LogCat
 import com.fastapp.R
 import com.fastapp.config.AppConfig
 import com.fastapp.config.GlideApp
 import com.fastapp.utils.activity.ActivityManager
 import com.fastapp.config.GlogConfig
-import com.fastapp.config.DebugTreeConfig
 import com.fastapp.config.TitleBarConfig
 import com.fastapp.config.ToastConfig
 import com.hjq.bar.TitleBar
 import com.hjq.toast.ToastLogInterceptor
 import com.hjq.toast.ToastUtils
-import timber.log.Timber
 
 class FastApplication : Application() {
 
@@ -57,10 +56,8 @@ class FastApplication : Application() {
 //            CrashHandler.register(application)
             // Activity 栈管理初始化
             ActivityManager.getInstance().init(application)
-            // 初始化日志打印
-            if (AppConfig.isLogEnable()) {
-                Timber.plant(DebugTreeConfig())
-            }
+            // 全局开关
+            LogCat.setDebug(AppConfig.isLogEnable())
             //Glog
             GlogConfig.init()
             // 注册网络状态变化监听
