@@ -1,4 +1,4 @@
-package com.fastapp.utils.log
+package com.fastapp.config
 
 import android.os.Build
 import timber.log.Timber
@@ -6,7 +6,7 @@ import timber.log.Timber
 /**
  *desc: 自定义日志打印规则
  */
-class DebugLoggerTree : Timber.DebugTree() {
+class DebugTreeConfig : Timber.DebugTree() {
 
     companion object {
         private const val MAX_TAG_LENGTH: Int = 23

@@ -1,12 +1,11 @@
-package com.fastapp.utils.glog
+package com.fastapp.config
 
-import com.fastapp.config.AppConfig
 import com.therouter.getApplicationContext
 import glog.android.Glog
 import timber.log.Timber
 import java.io.IOException
 
-object GlogUtils {
+object GlogConfig {
 
 
     private var glog: Glog? = null

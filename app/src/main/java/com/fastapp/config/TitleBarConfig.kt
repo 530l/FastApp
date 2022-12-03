@@ -1,4 +1,4 @@
-package com.fastapp.utils.titlebar
+package com.fastapp.config
 
 import android.content.*
 import android.graphics.drawable.ColorDrawable
@@ -12,7 +12,7 @@ import com.hjq.bar.style.LightBarStyle
 
 
 
-class TitleBarStyle : LightBarStyle() {
+class TitleBarConfig : LightBarStyle() {
 
     override fun newTitleView(context: Context): TextView {
         return AppCompatTextView(context)

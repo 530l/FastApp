@@ -1,4 +1,4 @@
-package com.fastapp.utils.toast
+package com.fastapp.config
 
 import android.content.Context
 import android.graphics.drawable.Drawable
@@ -9,7 +9,7 @@ import com.hjq.toast.style.BlackToastStyle
 /**
  * desc: Toast 样式配置
  */
-class ToastStyle : BlackToastStyle() {
+class ToastConfig : BlackToastStyle() {
 
     override fun getBackgroundDrawable(context: Context): Drawable {
         val drawable = GradientDrawable()

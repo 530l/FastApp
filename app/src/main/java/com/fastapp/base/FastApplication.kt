@@ -8,35 +8,26 @@ import android.os.Build
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.ViewModelStore
-import androidx.lifecycle.ViewModelStoreOwner
 import com.fastapp.R
 import com.fastapp.config.AppConfig
 import com.fastapp.config.GlideApp
 import com.fastapp.utils.activity.ActivityManager
-import com.fastapp.utils.glog.GlogUtils
-import com.fastapp.utils.log.DebugLoggerTree
-import com.fastapp.utils.titlebar.TitleBarStyle
-import com.fastapp.utils.toast.ToastStyle
+import com.fastapp.config.GlogConfig
+import com.fastapp.config.DebugTreeConfig
+import com.fastapp.config.TitleBarConfig
+import com.fastapp.config.ToastConfig
 import com.hjq.bar.TitleBar
 import com.hjq.toast.ToastLogInterceptor
 import com.hjq.toast.ToastUtils
+import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
-
-class FastApplication : Application(), ViewModelStoreOwner {
-
-    lateinit var mAppViewModelStore: ViewModelStore
+@HiltAndroidApp
+class FastApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
         initSdk(this)
-        mAppViewModelStore = ViewModelStore()
-
-    }
-
-    override fun getViewModelStore(): ViewModelStore {
-        return mAppViewModelStore
     }
 
     override fun onLowMemory() {
@@ -57,9 +48,9 @@ class FastApplication : Application(), ViewModelStoreOwner {
          */
         fun initSdk(application: Application) {
             // 设置标题栏初始化器
-            TitleBar.setDefaultStyle(TitleBarStyle())
+            TitleBar.setDefaultStyle(TitleBarConfig())
             // 初始化吐司
-            ToastUtils.init(application, ToastStyle())
+            ToastUtils.init(application, ToastConfig())
             // 设置调试模式
             ToastUtils.setDebugMode(AppConfig.isDebug())
             // 设置 Toast 拦截器
@@ -70,10 +61,10 @@ class FastApplication : Application(), ViewModelStoreOwner {
             ActivityManager.getInstance().init(application)
             // 初始化日志打印
             if (AppConfig.isLogEnable()) {
-                Timber.plant(DebugLoggerTree())
+                Timber.plant(DebugTreeConfig())
             }
             //Glog
-            GlogUtils.init()
+            GlogConfig.init()
             // 注册网络状态变化监听
             val connectivityManager: ConnectivityManager? = ContextCompat.getSystemService(
                 application,
@@ -97,6 +88,4 @@ class FastApplication : Application(), ViewModelStoreOwner {
             }
         }
     }
-
-
 }
