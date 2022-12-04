@@ -16,7 +16,7 @@ import com.fast.base.action.*
 
 
 abstract class BaseFragment<A : BaseActivity> : Fragment(),
-    HandlerAction, ClickAction, BundleAction, KeyboardAction {
+    HandlerAction, ClickAction, BundleAction {
 
     /** Activity 对象 */
     private var activityInside: A? = null
@@ -29,8 +29,9 @@ abstract class BaseFragment<A : BaseActivity> : Fragment(),
 
     @Suppress("UNCHECKED_CAST")
     override fun onAttach(context: Context) {
-        activityInside = requireActivity() as A // 获得全局的 Activity
         super.onAttach(context)
+        // 获得全局的 Activity
+        activityInside = requireActivity() as A
     }
 
     override fun onCreateView(
@@ -218,7 +219,5 @@ abstract class BaseFragment<A : BaseActivity> : Fragment(),
         return false
     }
 
-    override fun getContext(): Context? {
-        return activityInside
-    }
+
 }
