@@ -12,7 +12,10 @@ import com.fastapp.databinding.CopyFragmentBinding
 import com.fastapp.entity.Student
 import com.fastapp.vm.TaskViewModel
 import com.hjq.toast.ToastUtils
+import dagger.hilt.android.AndroidEntryPoint
 
+//https://developer.android.google.cn/training/dependency-injection/hilt-android?hl=zh-cn
+@AndroidEntryPoint
 class CopyFragment : BaseBindingFragment<BaseActivity, CopyFragmentBinding>() {
 
     companion object {

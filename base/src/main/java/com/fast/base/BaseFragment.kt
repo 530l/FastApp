@@ -19,7 +19,7 @@ abstract class BaseFragment<A : BaseActivity> : Fragment(),
     HandlerAction, ClickAction, BundleAction, KeyboardAction {
 
     /** Activity 对象 */
-    private var activity: A? = null
+    private var activityInside: A? = null
 
     /** 根布局 */
     var rootView: View? = null
@@ -29,9 +29,8 @@ abstract class BaseFragment<A : BaseActivity> : Fragment(),
 
     @Suppress("UNCHECKED_CAST")
     override fun onAttach(context: Context) {
+        activityInside = requireActivity() as A // 获得全局的 Activity
         super.onAttach(context)
-        // 获得全局的 Activity
-        activity = requireActivity() as A
     }
 
     override fun onCreateView(
@@ -56,7 +55,7 @@ abstract class BaseFragment<A : BaseActivity> : Fragment(),
             return
         }
 
-        if (this.activity?.lifecycle?.currentState == Lifecycle.State.STARTED) {
+        if (this.activityInside?.lifecycle?.currentState == Lifecycle.State.STARTED) {
             onActivityResume()
         } else {
             onFragmentResume(false)
@@ -88,7 +87,7 @@ abstract class BaseFragment<A : BaseActivity> : Fragment(),
 
     override fun onDetach() {
         super.onDetach()
-        activity = null
+        activityInside = null
     }
 
     /**
@@ -106,14 +105,14 @@ abstract class BaseFragment<A : BaseActivity> : Fragment(),
      * 获取绑定的 Activity，防止出现 getActivity 为空
      */
     open fun getAttachActivity(): A? {
-        return activity
+        return activityInside
     }
 
     /**
      * 获取 Application 对象
      */
     open fun getApplication(): Application? {
-        activity?.let { return it.application }
+        activityInside?.let { return it.application }
         return null
     }
 
@@ -153,11 +152,11 @@ abstract class BaseFragment<A : BaseActivity> : Fragment(),
         clazz: Class<out Activity>,
         callback: BaseActivity.OnActivityCallback?
     ) {
-        activity?.startActivityForResult(clazz, callback)
+        activityInside?.startActivityForResult(clazz, callback)
     }
 
     open fun startActivityForResult(intent: Intent, callback: BaseActivity.OnActivityCallback?) {
-        activity?.startActivityForResult(intent, null, callback)
+        activityInside?.startActivityForResult(intent, null, callback)
     }
 
     open fun startActivityForResult(
@@ -165,14 +164,14 @@ abstract class BaseFragment<A : BaseActivity> : Fragment(),
         options: Bundle?,
         callback: BaseActivity.OnActivityCallback?
     ) {
-        activity?.startActivityForResult(intent, options, callback)
+        activityInside?.startActivityForResult(intent, options, callback)
     }
 
     /**
      * 销毁当前 Fragment 所在的 Activity
      */
     open fun finish() {
-        this.activity?.let {
+        this.activityInside?.let {
             if (it.isFinishing || it.isDestroyed) {
                 return
             }
@@ -220,6 +219,6 @@ abstract class BaseFragment<A : BaseActivity> : Fragment(),
     }
 
     override fun getContext(): Context? {
-        return activity
+        return activityInside
     }
 }

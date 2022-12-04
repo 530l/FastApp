@@ -18,8 +18,9 @@ import com.fastapp.entity.SerializableModel
 import com.fastapp.ui.fragment.CopyFragment
 import com.hjq.bar.TitleBar
 import com.therouter.router.Route
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 @Route(path = "http://fastapp/copy", action = "abc")
 class CopyActivity : BaseBindingActivity<CopyActivityBinding>() {
 

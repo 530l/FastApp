@@ -35,10 +35,11 @@ import com.scwang.smart.refresh.header.MaterialHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.tencent.mmkv.MMKV
 import com.tencent.mmkv.MMKVLogLevel
+import dagger.hilt.android.HiltAndroidApp
 import okhttp3.Cache
 import java.util.concurrent.TimeUnit
 
-
+@HiltAndroidApp
 class FastApplication : Application() {
 
     companion object {
@@ -94,8 +95,7 @@ class FastApplication : Application() {
             cache(Cache(application.cacheDir, 1024 * 1024 * 128))
             // 缓存设置, 当超过maxSize最大值会根据最近最少使用算法清除缓存来限制缓存大小
 
-            // LogCat是否输出异常日志, 异常日志可以快速定位网络请求错误
-            setDebug(AppConfig.isLogEnable(), "requestQ")
+            setDebug(AppConfig.isLogEnable())
 
             // AndroidStudio OkHttp Profiler 插件输出网络日志
             addInterceptor(LogRecordInterceptor(AppConfig.isLogEnable()))

@@ -8,11 +8,13 @@ import com.fastapp.databinding.SplashActivityBinding
 import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ImmersionBar
 import com.therouter.TheRouter
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.TimeUnit
 
 /**
  * 闪屏界面
  */
+@AndroidEntryPoint
 class SplashActivity : BaseBindingActivity<SplashActivityBinding>() {
 
 
