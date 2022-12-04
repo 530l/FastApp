@@ -4,13 +4,11 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import com.drake.brv.utils.*
-import com.drake.logcat.LogCat
 import com.fast.base.BaseActivity
 import com.fastapp.R
 import com.fastapp.base.BaseBindingFragment
 import com.fastapp.config.glide.GlideApp
 import com.fastapp.databinding.CopyFragmentBinding
-import com.fastapp.entity.Game
 import com.fastapp.entity.Student
 import com.fastapp.vm.TaskViewModel
 import com.hjq.toast.ToastUtils
@@ -33,13 +31,13 @@ class CopyFragment : BaseBindingFragment<BaseActivity, CopyFragmentBinding>() {
         //共享viewModel
 //        val viewModel: TaskViewModel by activityViewModels()
         viewModel.mutableLiveData.observe(viewLifecycleOwner) {
-            ToastUtils.show(it)
+            toast(it)
         }
         viewModel.show()
         //view-model，mutableLiveData 没有回收，viewLifecycleOwner 回收了，
-        LogCat.i("viewModel add = $viewModel ")
-        LogCat.i("viewLifecycleOwner add = $viewLifecycleOwner")
-        LogCat.i("mutableLiveData add = ${viewModel.mutableLiveData}")
+//        LogCat.i("viewModel add = $viewModel ")
+//        LogCat.i("viewLifecycleOwner add = $viewLifecycleOwner")
+//        LogCat.i("mutableLiveData add = ${viewModel.mutableLiveData}")
     }
 
     private val list: MutableList<Student> = ArrayList()
@@ -74,7 +72,7 @@ class CopyFragment : BaseBindingFragment<BaseActivity, CopyFragmentBinding>() {
                 findView<TextView>(R.id.tv_simple).text = bindingAdapterPosition.toString()
             }
             R.id.tv_simple.onClick {
-                com.drake.tooltip.toast("点击文本")
+                ToastUtils.show("点击文本")
             }
         }.models = list
     }

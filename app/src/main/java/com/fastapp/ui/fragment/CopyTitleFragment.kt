@@ -5,7 +5,6 @@ import com.fastapp.base.BaseBindingTitleBarFragment
 import com.fastapp.databinding.CopyTitleFragmentBinding
 import com.fastapp.ui.activity.CopyTitleActivity
 import com.hjq.bar.TitleBar
-import com.hjq.toast.ToastUtils
 
 class CopyTitleFragment :
     BaseBindingTitleBarFragment<CopyTitleActivity, CopyTitleFragmentBinding>() {
@@ -26,15 +25,13 @@ class CopyTitleFragment :
     }
 
     override fun onTitleClick(titleBar: TitleBar?) {
-        ToastUtils.show("onTitleClick")
+
     }
 
     override fun onLeftClick(titleBar: TitleBar?) {
-        ToastUtils.show("onLeftClick")
     }
 
     override fun onRightClick(titleBar: TitleBar?) {
-        ToastUtils.show("onRightClick")
     }
 
     override fun isStatusBarEnabled(): Boolean {

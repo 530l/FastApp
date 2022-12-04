@@ -1,9 +1,8 @@
-
-package com.fastapp.config.interceptor
+package com.fastapp.config.http
 
 import com.drake.net.Net
-import com.drake.tooltip.toast
 import com.fastapp.config.UserConfig
+import com.hjq.toast.ToastUtils
 import okhttp3.Interceptor
 import okhttp3.Response
 import org.json.JSONObject
@@ -22,7 +21,7 @@ class RefreshTokenInterceptor : Interceptor {
                 val json = Net.get("token").execute<String>() // 同步刷新token
                 val jsonObject = JSONObject(json)
                 if (jsonObject.getBoolean("isExpired")) {
-                    toast("登录状态失效")
+                    ToastUtils.show("登录状态失效")
                     // token刷新失败跳转到登录界面重新登录
                 } else {
                     UserConfig.token = jsonObject.optString("token")

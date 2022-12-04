@@ -23,43 +23,28 @@ android {
 }
 
 dependencies {
-    //网络// 通知栏监听网络日志 // 吐司工具
-    api 'com.squareup.okhttp3:okhttp:4.10.0'
-    api 'com.github.liangjingkanji:Net:3.5.2'
-    api "com.github.chuckerteam.chucker:library:3.5.2"
-    api "com.github.liangjingkanji:Tooltip:1.2.2"
-    //图片
-    api 'com.github.bumptech.glide:glide:4.13.2'
-    //adapter
-    api 'com.github.liangjingkanji:BRV:1.3.86'
-    //权限
-    api 'com.github.getActivity:XXPermissions:16.2'
-    //日志，回捞  推送指令
-    api "cn.huolala.glog.android:glog-android-static:1.0.0"
-    api 'com.github.liangjingkanji:LogCat:1.2.4'
-    //序列化，
-    api 'com.tencent:mmkv-static:1.2.14'
-    api 'com.github.liangjingkanji:Serialize:1.3.2'
-    api 'com.github.getActivity:GsonFactory:6.3'
-    //路由
-    api "cn.therouter:router:1.1.3-beta1"
-    //视图工具
-    api 'com.github.getActivity:ToastUtils:10.5'
-    api 'com.github.getActivity:ShapeView:8.5'
-    api 'com.github.getActivity:TitleBar:9.6'
-    api 'com.github.li-xiaojun:XPopup:2.9.16'
-    //状态栏
-    api 'com.geyifeng.immersionbar:immersionbar:3.2.2'
-    api 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.2'
-    // ViewBindingKTX
-    api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-ktx:2.1.0'
-    api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-nonreflection-ktx:2.1.0'
-    api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:2.1.0'
-    //内存泄漏监控
-    debugApi 'com.squareup.leakcanary:leakcanary-android:2.10'
-    //解决LiveData数据倒灌
-    api 'com.kunminx.arch:unpeek-livedata:7.8.0'
-    // PictureSelector 基础 (必须) // 图片压缩 (按需引入)
-    api 'io.github.lucksiege:pictureselector:v3.10.7'
-    api 'io.github.lucksiege:compress:v3.10.7'
+    api 'com.squareup.okhttp3:okhttp:4.10.0'//okhttp
+    api 'com.github.liangjingkanji:Net:3.5.2'//Net
+    api "com.github.chuckerteam.chucker:library:3.5.2"//通知栏监听网络日志,可以查看每个请求的信息
+    api 'com.github.getActivity:ToastUtils:11.2'//toast
+    api 'com.github.bumptech.glide:glide:4.13.2'//glide
+    api 'com.github.liangjingkanji:BRV:1.3.86'//BRV
+    api 'com.github.getActivity:XXPermissions:16.2'//权限
+    api "cn.huolala.glog.android:glog-android-static:1.0.0"//日志
+    api 'com.github.liangjingkanji:LogCat:1.2.4'//日志
+    api 'com.tencent:mmkv-static:1.2.14'//存储
+    api 'com.github.liangjingkanji:Serialize:1.3.2'//存储
+    api 'com.github.getActivity:GsonFactory:6.3'//gson
+    api "cn.therouter:router:1.1.3-beta1"//路由
+    api 'com.github.getActivity:ShapeView:8.5'//shape
+    api 'com.github.getActivity:TitleBar:9.6'//title
+    api 'com.github.li-xiaojun:XPopup:2.9.16'//popup
+    api 'com.geyifeng.immersionbar:immersionbar:3.2.2'//状态栏
+    api 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.2'//状态栏
+    api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-ktx:2.1.0'//view binding
+    api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:2.1.0'//view binding
+    debugApi 'com.squareup.leakcanary:leakcanary-android:2.10'//内存泄漏监控
+    api 'com.kunminx.arch:unpeek-livedata:7.8.0' //解决LiveData数据倒灌
+    api 'io.github.lucksiege:pictureselector:v3.10.7'// PictureSelector
+    api 'io.github.lucksiege:compress:v3.10.7'// compress
 }

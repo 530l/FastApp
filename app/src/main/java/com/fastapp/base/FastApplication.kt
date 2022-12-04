@@ -15,18 +15,20 @@ import com.drake.net.NetConfig
 import com.drake.net.cookie.PersistentCookieJar
 import com.drake.net.interceptor.LogRecordInterceptor
 import com.drake.net.okhttp.setConverter
+import com.drake.net.okhttp.setDebug
 import com.drake.net.okhttp.setDialogFactory
 import com.drake.net.okhttp.setRequestInterceptor
 import com.drake.statelayout.StateConfig
-import com.drake.tooltip.dialog.BubbleDialog
 import com.fastapp.R
 import com.fastapp.config.*
 import com.fastapp.config.glide.GlideApp
-import com.fastapp.config.interceptor.MyRequestInterceptor
+import com.fastapp.config.http.GsonConvert
+import com.fastapp.config.http.MyRequestInterceptor
+import com.fastapp.config.http.RefreshTokenInterceptor
 import com.fastapp.utils.ActivityManager
+import com.fastapp.view.BubbleDialog
 import com.hjq.bar.TitleBar
 import com.hjq.gson.factory.GsonFactory
-import com.hjq.toast.ToastLogInterceptor
 import com.hjq.toast.ToastUtils
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.MaterialHeader
@@ -52,9 +54,7 @@ class FastApplication : Application() {
     private fun initSdk(application: Application) {
         initSmartRefreshLayout()//缺省，刷新控件
         TitleBar.setDefaultStyle(TitleBarConfig())// 设置标题栏初始化器
-        ToastUtils.setDebugMode(AppConfig.isDebug())  // 设置调试模式
-        ToastUtils.init(application, ToastConfig())  // 初始化吐司
-        ToastUtils.setInterceptor(ToastLogInterceptor())// 设置 Toast 拦截器
+        ToastUtils.init(application)  // 初始化吐司
         ActivityManager.getInstance().init(application) // Activity 栈管理初始化
         LogCat.setDebug(AppConfig.isLogEnable()) // LogCat是否输出异常日志
         GlogConfig.init()//Glog
@@ -95,7 +95,7 @@ class FastApplication : Application() {
             // 缓存设置, 当超过maxSize最大值会根据最近最少使用算法清除缓存来限制缓存大小
 
             // LogCat是否输出异常日志, 异常日志可以快速定位网络请求错误
-            LogCat.setDebug(AppConfig.isLogEnable())
+            setDebug(AppConfig.isLogEnable(), "requestQ")
 
             // AndroidStudio OkHttp Profiler 插件输出网络日志
             addInterceptor(LogRecordInterceptor(AppConfig.isLogEnable()))
@@ -117,9 +117,10 @@ class FastApplication : Application() {
 
             // 添加请求拦截器, 可配置全局/动态参数
             setRequestInterceptor(MyRequestInterceptor())
+            addInterceptor(RefreshTokenInterceptor())
 
             // 数据转换器
-            setConverter(GsonConverter())
+            setConverter(GsonConvert())
 
             // 自定义全局加载对话框
             setDialogFactory {

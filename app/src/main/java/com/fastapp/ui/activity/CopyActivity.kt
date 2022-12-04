@@ -3,12 +3,16 @@ package com.fastapp.ui.activity
 
 import androidx.activity.viewModels
 import com.drake.logcat.LogCat
+import com.drake.net.Get
+import com.drake.net.utils.scopeNetLife
 import com.drake.serialize.serialize.serial
 import com.drake.serialize.serialize.serialLazy
 import com.drake.serialize.serialize.serialLiveData
 import com.fastapp.R
 import com.fastapp.base.BaseBindingActivity
 import com.fastapp.databinding.CopyActivityBinding
+import com.fastapp.entity.DataDTO
+import com.fastapp.entity.Game
 import com.fastapp.vm.MyViewModel
 import com.fastapp.entity.SerializableModel
 import com.fastapp.ui.fragment.CopyFragment
@@ -45,6 +49,16 @@ class CopyActivity : BaseBindingActivity<CopyActivityBinding>() {
 
 //        name = "我把530写入本地磁盘中。"
         LogCat.e(name)
+
+        scopeNetLife { // 创建作用域
+            // 这个大括号内就属于作用域内部
+            Get<DataDTO?>("/article/list/0/json") {
+                param("u_name", "drake")
+                param("pwd", "123456")
+            }.await()?.let {
+                LogCat.e("#￥￥#" + it.pageCount)
+            }
+        }
     }
 
     override fun onLeftClick(titleBar: TitleBar?) {

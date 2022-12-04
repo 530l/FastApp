@@ -63,4 +63,10 @@
         <item name="android:background">@drawable/button_circle_selector</item>
         <item name="android:foreground">@null</item>
     </style>
+
+    <style name="BubbleDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
 </resources>
