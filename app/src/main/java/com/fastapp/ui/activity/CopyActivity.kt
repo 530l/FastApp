@@ -12,7 +12,6 @@ import com.fastapp.R
 import com.fastapp.base.BaseBindingActivity
 import com.fastapp.databinding.CopyActivityBinding
 import com.fastapp.entity.DataDTO
-import com.fastapp.entity.Game
 import com.fastapp.vm.MyViewModel
 import com.fastapp.entity.SerializableModel
 import com.fastapp.ui.fragment.CopyFragment
@@ -20,6 +19,11 @@ import com.hjq.bar.TitleBar
 import com.therouter.router.Route
 import dagger.hilt.android.AndroidEntryPoint
 
+/*
+下面4的Android类，通过@AndroidEntryPoint注解
+Activity  Fragment  View  Service BroadcastReceiver
+Hilt 注入的类可以有同样使用注入的其他基类。如果这些类是抽象类，则它们不需要 @AndroidEntryPoint 注解。
+* */
 @AndroidEntryPoint
 @Route(path = "http://fastapp/copy", action = "abc")
 class CopyActivity : BaseBindingActivity<CopyActivityBinding>() {

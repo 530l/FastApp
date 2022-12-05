@@ -39,6 +39,7 @@ import dagger.hilt.android.HiltAndroidApp
 import okhttp3.Cache
 import java.util.concurrent.TimeUnit
 
+//Application（通过使用 @HiltAndroidApp）
 @HiltAndroidApp
 class FastApplication : Application() {
 
