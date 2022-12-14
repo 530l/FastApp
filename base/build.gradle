@@ -35,7 +35,7 @@ dependencies {
     api 'com.tencent:mmkv-static:1.2.14'//存储
     api 'com.github.liangjingkanji:Serialize:1.3.2'//存储
     api 'com.github.getActivity:GsonFactory:6.3'//gson
-    api "cn.therouter:router:1.1.3-beta1"//路由
+    api "cn.therouter:router:1.1.2-rc7"//路由
     api 'com.github.getActivity:ShapeView:8.5'//shape
     api 'com.github.getActivity:TitleBar:9.6'//title
     api 'com.github.li-xiaojun:XPopup:2.9.16'//popup

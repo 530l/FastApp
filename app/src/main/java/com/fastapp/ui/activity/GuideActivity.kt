@@ -10,7 +10,7 @@ class GuideActivity : BaseBindingActivity<GuideActivityBinding>() {
 
     override fun initView() {
         binding.writeGladTv.setOnClickListener {
-            GlogConfig.write("hello")
+            GlogConfig.write("2431412412")
         }
         binding.readGladTv.setOnClickListener {
             GlogConfig.read()

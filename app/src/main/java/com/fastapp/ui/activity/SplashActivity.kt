@@ -22,8 +22,8 @@ class SplashActivity : BaseBindingActivity<SplashActivityBinding>() {
         LogCat.i("%s", "hhahah")
         LogCat.e("The activity has been destroyed and permission requests cannot be made")
         Interval(1, 1, TimeUnit.SECONDS, 2, 0).finish {
-//            TheRouter.build("http://fastapp/guide").navigation(this@SplashActivity)
-            TheRouter.build("http://fastapp/copy").navigation(this@SplashActivity)
+            TheRouter.build("http://fastapp/guide").navigation(this@SplashActivity)
+//            TheRouter.build("http://fastapp/copy").navigation(this@SplashActivity)
 //            TheRouter.build("http://fastapp/copytitle").navigation(this@SplashActivity)
             finish()
         }.life(this).start()

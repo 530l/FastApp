@@ -20,9 +20,12 @@ object GlogConfig {
         setup()
     }
 
+    // 支持让不同类型的数据，写入到不同的文件吗？ #1
+    // 可以创建不同的 Glog 实例来实现
 
     // 初始化实例
     private fun setup() {
+
         glog = Glog.Builder(getApplicationContext())
             .protoName("glog_identify") // 实例标识，相同标识的实例只创建一次
 //                .encryptMode(Glog.EncryptMode.AES) // 加密方式

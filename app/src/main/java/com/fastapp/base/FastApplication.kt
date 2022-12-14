@@ -60,6 +60,7 @@ class FastApplication : Application() {
         ActivityManager.getInstance().init(application) // Activity 栈管理初始化
         LogCat.setDebug(AppConfig.isLogEnable()) // LogCat是否输出异常日志
         GlogConfig.init()//Glog
+        LogCat.i(filesDir.absolutePath + "/glog","glogpath")
         initNet(application)//网络
         initConnectivityManager(application)//手机网络监听
         initPreferenceHolder()
