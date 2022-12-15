@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.fastapp.R
 import dagger.hilt.android.AndroidEntryPoint
+import net.lingala.zip4j.ZipFile
+import java.util.zip.ZipInputStream
 import javax.inject.Inject
 
 
@@ -21,6 +23,9 @@ class TestHiltActivity : AppCompatActivity() {
         val mTransaction = supportFragmentManager.beginTransaction()
         mTransaction.add(R.id.mContainerView, copyTitleFragment)
         mTransaction.commit()
+
+         ZipFile("filename.zip")
+
     }
 }
 

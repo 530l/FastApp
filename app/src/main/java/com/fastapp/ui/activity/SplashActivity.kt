@@ -10,6 +10,8 @@ import com.gyf.immersionbar.ImmersionBar
 import com.therouter.TheRouter
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.TimeUnit
+import kotlin.math.abs
+import kotlin.math.ceil
 
 /**
  * 闪屏界面
@@ -21,7 +23,14 @@ class SplashActivity : BaseBindingActivity<SplashActivityBinding>() {
     override fun initView() {
         LogCat.i("%s", "hhahah")
         LogCat.e("The activity has been destroyed and permission requests cannot be made")
-        Interval(1, 1, TimeUnit.SECONDS, 2, 0).finish {
+        val  t1 = 1f
+        val  t2 =1f
+        val t3 = ceil(t1+t2)
+        Interval(1, 1, TimeUnit.SECONDS, t3.toLong(), 0)
+            .subscribe {
+                LogCat.i("Interval=${count}")
+            }
+            .finish {
             TheRouter.build("http://fastapp/guide").navigation(this@SplashActivity)
 //            TheRouter.build("http://fastapp/copy").navigation(this@SplashActivity)
 //            TheRouter.build("http://fastapp/copytitle").navigation(this@SplashActivity)
