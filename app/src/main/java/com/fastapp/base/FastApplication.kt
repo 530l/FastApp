@@ -46,6 +46,7 @@ import skin.support.app.SkinAppCompatViewInflater
 import skin.support.app.SkinCardViewInflater
 import skin.support.constraint.app.SkinConstraintViewInflater
 import skin.support.design.app.SkinMaterialViewInflater
+import skin.support.utils.SkinPreference
 import java.util.concurrent.TimeUnit
 
 
@@ -71,6 +72,7 @@ class FastApplication : Application() {
             .setSkinStatusBarColorEnable(true) // 关闭状态栏换肤，默认打开[可选]
             .setSkinWindowBackgroundEnable(true) // 关闭windowBackground换肤，默认打开[可选]
             .loadSkin()
+        SkinPreference.getInstance().skinName
 
     }
 
