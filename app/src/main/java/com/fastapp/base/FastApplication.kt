@@ -71,6 +71,7 @@ class FastApplication : Application() {
             .setSkinStatusBarColorEnable(true) // 关闭状态栏换肤，默认打开[可选]
             .setSkinWindowBackgroundEnable(true) // 关闭windowBackground换肤，默认打开[可选]
             .loadSkin()
+
     }
 
     private fun initSdk(application: Application) {
