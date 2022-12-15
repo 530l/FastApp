@@ -127,6 +127,12 @@ android {
         }
     }
 
+    sourceSets {
+        main {
+            res.srcDirs = ['src/main/res', 'src/main/res-black', 'src/main/res-green']
+        }
+    }
+
 }
 
 dependencies {

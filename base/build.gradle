@@ -47,4 +47,17 @@ dependencies {
     api 'com.kunminx.arch:unpeek-livedata:7.8.0' //解决LiveData数据倒灌
     api 'io.github.lucksiege:pictureselector:v3.10.7'// PictureSelector
     api 'io.github.lucksiege:compress:v3.10.7'// compress
+    ////////////////////换肤///////////////////
+    // skin-support
+//    api 'skin.support:skin-support:4.0.5'
+//    api 'skin.support:skin-support-appcompat:4.0.5'
+//    api 'skin.support:skin-support-design:4.0.5'
+//    api 'skin.support:skin-support-cardview:4.0.5'
+//    api 'skin.support:skin-support-constraint-layout:4.0.5'
+    api 'com.github.littlefogcat.skin-support:skin-support:4.0.7'
+    api 'com.github.littlefogcat.skin-support:skin-support-appcompat:4.0.7'
+    api 'com.github.littlefogcat.skin-support:skin-support-material:4.0.7'
+    api 'com.github.littlefogcat.skin-support:skin-support-cardview:4.0.7'
+    api 'com.github.littlefogcat.skin-support:skin-support-constraintlayout:4.0.7'
+    ////////////////////换肤///////////////////
 }

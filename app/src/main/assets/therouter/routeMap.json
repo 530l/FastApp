@@ -1,5 +1,19 @@
 [
   {
+    "path": "http://fastapp/sk2",
+    "className": "com.fastapp.ui.skin.Skin2Activity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "http://fastapp/sk1",
+    "className": "com.fastapp.ui.skin.Skin1Activity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
     "path": "http://fastapp/guide",
     "className": "com.fastapp.ui.activity.GuideActivity",
     "action": "abc",

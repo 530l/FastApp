@@ -2,7 +2,10 @@ package com.fastapp.base
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.annotation.NonNull
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.SkinAppCompatDelegateImpl
 import androidx.viewbinding.ViewBinding
 import com.dylanc.viewbinding.base.ActivityBinding
 import com.dylanc.viewbinding.base.ActivityBindingDelegate
@@ -12,6 +15,7 @@ import com.fastapp.action.TitleBarAction
 import com.fastapp.action.ToastAction
 import com.gyf.immersionbar.ImmersionBar
 import com.hjq.bar.TitleBar
+
 
 abstract class BaseBindingActivity <VB : ViewBinding>:
     BaseActivity(), ToastAction, TitleBarAction,
@@ -114,7 +118,9 @@ abstract class BaseBindingActivity <VB : ViewBinding>:
     }
 
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun getDelegate(): AppCompatDelegate {
+        return SkinAppCompatDelegateImpl.get(this, this)
     }
+
+
 }

@@ -75,6 +75,9 @@
 
         <activity android:name=".ui.activity.CopyActivity" />
         <activity android:name=".ui.activity.CopyTitleActivity" />
+        <activity android:name=".ui.skin.Skin1Activity" />
+        <activity android:name=".ui.skin.Skin2Activity" />
+
     </application>
 
 </manifest>

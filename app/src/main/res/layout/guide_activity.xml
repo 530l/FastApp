@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/common_sk1_color"
     android:orientation="vertical"
     tools:context=".ui.activity.GuideActivity">
 
@@ -18,7 +19,7 @@
         android:layout_width="@dimen/dp_200"
         android:layout_height="@dimen/dp_30"
         android:layout_margin="@dimen/dp_30"
-        app:shape_solidColor="@color/black20" />
+        app:shape_solidColor="@color/common_confirm_text_color" />
 
     <com.hjq.shape.view.ShapeTextView
         android:id="@+id/readGladTv"

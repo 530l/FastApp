@@ -20,11 +20,15 @@ import com.drake.net.okhttp.setDialogFactory
 import com.drake.net.okhttp.setRequestInterceptor
 import com.drake.statelayout.StateConfig
 import com.fastapp.R
-import com.fastapp.config.*
+import com.fastapp.config.AppConfig
+import com.fastapp.config.GlogConfig
+import com.fastapp.config.TitleBarConfig
 import com.fastapp.config.glide.GlideApp
 import com.fastapp.config.http.GsonConvert
 import com.fastapp.config.http.MyRequestInterceptor
 import com.fastapp.config.http.RefreshTokenInterceptor
+import com.fastapp.ui.skin.loader.CustomSDCardLoader
+import com.fastapp.ui.skin.loader.ZipSDCardLoader
 import com.fastapp.utils.ActivityManager
 import com.fastapp.view.BubbleDialog
 import com.hjq.bar.TitleBar
@@ -37,7 +41,13 @@ import com.tencent.mmkv.MMKV
 import com.tencent.mmkv.MMKVLogLevel
 import dagger.hilt.android.HiltAndroidApp
 import okhttp3.Cache
+import skin.support.SkinCompatManager
+import skin.support.app.SkinAppCompatViewInflater
+import skin.support.app.SkinCardViewInflater
+import skin.support.constraint.app.SkinConstraintViewInflater
+import skin.support.design.app.SkinMaterialViewInflater
 import java.util.concurrent.TimeUnit
+
 
 //Application（通过使用 @HiltAndroidApp）
 @HiltAndroidApp
@@ -51,6 +61,16 @@ class FastApplication : Application() {
         super.onCreate()
         install = this
         initSdk(this)
+        SkinCompatManager.withoutActivity(this)
+            .addStrategy(CustomSDCardLoader())// 自定义加载策略，指定SDCard路径
+            .addStrategy(ZipSDCardLoader())// 自定义加载策略，获取zip包中的资源
+            .addInflater(SkinAppCompatViewInflater()) // 基础控件换肤初始化
+            .addInflater(SkinMaterialViewInflater()) // material design 控件换肤初始化[可选]
+            .addInflater(SkinConstraintViewInflater()) // ConstraintLayout 控件换肤初始化[可选]
+            .addInflater(SkinCardViewInflater()) // CardView v7 控件换肤初始化[可选]
+            .setSkinStatusBarColorEnable(true) // 关闭状态栏换肤，默认打开[可选]
+            .setSkinWindowBackgroundEnable(true) // 关闭windowBackground换肤，默认打开[可选]
+            .loadSkin()
     }
 
     private fun initSdk(application: Application) {
@@ -60,7 +80,7 @@ class FastApplication : Application() {
         ActivityManager.getInstance().init(application) // Activity 栈管理初始化
         LogCat.setDebug(AppConfig.isLogEnable()) // LogCat是否输出异常日志
         GlogConfig.init()//Glog
-        LogCat.i(filesDir.absolutePath + "/glog","glogpath")
+        LogCat.i(filesDir.absolutePath + "/glog", "glogpath")
         initNet(application)//网络
         initConnectivityManager(application)//手机网络监听
         initPreferenceHolder()

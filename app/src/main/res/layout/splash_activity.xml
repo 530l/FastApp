@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:id="@+id/splash_layout"
+    android:background="@color/common_sk1_color"
     android:orientation="vertical">
 
 
