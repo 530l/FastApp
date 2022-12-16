@@ -34,6 +34,7 @@ import com.fastapp.view.BubbleDialog
 import com.hjq.bar.TitleBar
 import com.hjq.gson.factory.GsonFactory
 import com.hjq.toast.ToastUtils
+import com.noober.background.BLAutoInjectController
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.MaterialHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
@@ -46,7 +47,6 @@ import skin.support.app.SkinAppCompatViewInflater
 import skin.support.app.SkinCardViewInflater
 import skin.support.constraint.app.SkinConstraintViewInflater
 import skin.support.design.app.SkinMaterialViewInflater
-import skin.support.utils.SkinPreference
 import java.util.concurrent.TimeUnit
 
 
@@ -56,7 +56,12 @@ class FastApplication : Application() {
 
     companion object {
         lateinit var install: FastApplication
+
+        init {
+            BLAutoInjectController.setEnableAutoInject(false)
+        }
     }
+
 
     override fun onCreate() {
         super.onCreate()
@@ -72,7 +77,7 @@ class FastApplication : Application() {
             .setSkinStatusBarColorEnable(true) // 关闭状态栏换肤，默认打开[可选]
             .setSkinWindowBackgroundEnable(true) // 关闭windowBackground换肤，默认打开[可选]
             .loadSkin()
-        SkinPreference.getInstance().skinName
+
 
     }
 

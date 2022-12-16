@@ -2,7 +2,6 @@ package com.fastapp.base
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.annotation.NonNull
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.SkinAppCompatDelegateImpl
@@ -15,9 +14,9 @@ import com.fastapp.action.TitleBarAction
 import com.fastapp.action.ToastAction
 import com.gyf.immersionbar.ImmersionBar
 import com.hjq.bar.TitleBar
+import com.noober.background.BackgroundLibrary
 
-
-abstract class BaseBindingActivity <VB : ViewBinding>:
+abstract class BaseBindingActivity<VB : ViewBinding> :
     BaseActivity(), ToastAction, TitleBarAction,
     ActivityBinding<VB> by ActivityBindingDelegate() {
 
@@ -30,6 +29,7 @@ abstract class BaseBindingActivity <VB : ViewBinding>:
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentViewWithBinding()
+        BackgroundLibrary.inject2(this)
         initActivity()
     }
 
@@ -116,7 +116,6 @@ abstract class BaseBindingActivity <VB : ViewBinding>:
         super.finish()
         overridePendingTransition(R.anim.left_in_activity, R.anim.left_out_activity)
     }
-
 
     override fun getDelegate(): AppCompatDelegate {
         return SkinAppCompatDelegateImpl.get(this, this)

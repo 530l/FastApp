@@ -60,4 +60,6 @@ dependencies {
     api 'com.github.littlefogcat.skin-support:skin-support-cardview:4.0.7'
     api 'com.github.littlefogcat.skin-support:skin-support-constraintlayout:4.0.7'
     ////////////////////换肤///////////////////
+    api 'androidx.appcompat:appcompat:1.5.1'
+    api 'com.github.JavaNoober.BackgroundLibrary:libraryx:1.7.5'//配合换肤使用，xml可以预览兼容
 }

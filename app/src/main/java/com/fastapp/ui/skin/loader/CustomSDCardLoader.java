@@ -12,8 +12,8 @@ public class CustomSDCardLoader extends SkinSDCardLoader {
 
     @Override
     protected String getSkinPath(Context context, String skinName) {
-//        return new File(SkinFileUtils.getSkinDir(context), skinName).getAbsolutePath();
-        return "/sdcard/skin/"+skinName;
+        return new File(SkinFileUtils.getSkinDir(context), skinName).getAbsolutePath();
+//        return "/sdcard/skin/"+skinName;
     }
 
     @Override

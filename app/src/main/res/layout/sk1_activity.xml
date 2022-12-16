@@ -6,11 +6,10 @@
     android:orientation="vertical">
 
 
-
     <LinearLayout
-        android:layout_marginTop="@dimen/dp_50"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/dp_100"
+        android:layout_marginTop="@dimen/dp_20"
         android:orientation="horizontal">
 
         <Button
@@ -34,15 +33,33 @@
             android:layout_width="@dimen/dp_100"
             android:layout_height="@dimen/dp_80"
             android:layout_gravity="center_horizontal"
-            android:text="加载ZIP" />
+            android:text="加载插件皮肤" />
+
+        <Button
+            android:id="@+id/sk4btn"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_80"
+            android:layout_gravity="center_horizontal"
+            android:text="加载自定义SD卡" />
     </LinearLayout>
 
-
-    <com.fastapp.view.skin.MyShapeLinearLayout
+    <ImageView
+        android:id="@+id/logo"
         android:layout_width="@dimen/dp_100"
         android:layout_height="@dimen/dp_100"
-        android:layout_gravity="center"
-        app:shape="rectangle"
-        app:shape_radius="@dimen/dp_20"
-        app:shape_solidColor="@color/common_sk1_color" />
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/logo_big_ic" />
+
+
+    <com.fastapp.view.skin.MyBLLinearLayout
+        android:id="@+id/bLLinearLayout"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_100"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        app:bl_shape="rectangle"
+        app:bl_solid_color="@color/common_sk1_color"
+        app:bl_stroke_width="1dp" />
+
+
 </LinearLayout>

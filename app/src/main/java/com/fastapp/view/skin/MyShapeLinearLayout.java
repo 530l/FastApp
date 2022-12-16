@@ -13,7 +13,7 @@ import skin.support.content.res.SkinCompatResources;
 import skin.support.widget.SkinCompatHelper;
 import skin.support.widget.SkinCompatSupportable;
 
-
+@Deprecated
 public class MyShapeLinearLayout extends ShapeLinearLayout implements SkinCompatSupportable {
 
 
@@ -28,12 +28,14 @@ public class MyShapeLinearLayout extends ShapeLinearLayout implements SkinCompat
 
     public MyShapeLinearLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
+        //如果此视图处于编辑模式，则为 True，否则为 false。
+//        if (isInEditMode()) return;
         //1.获取需要支持换肤的自定义属性，例如这里solidColor
         TypedArray array = context.obtainStyledAttributes(attrs, com.hjq.shape.R.styleable.ShapeLinearLayout);
-        //1.2获取资源，某个需要适配的资源id。
+//        //1.2获取资源，某个需要适配的资源id。
         shape_solidColor_id = array.getResourceId(styleable.getSolidColorStyleable(), SkinCompatHelper.INVALID_ID);
         array.recycle();
-        //2.应用之前使用的换肤（回显）
+//        //2.应用之前使用的换肤（回显）
         applySKinShapeLinearLayout();
     }
 
