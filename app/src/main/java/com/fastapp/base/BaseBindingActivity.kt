@@ -28,8 +28,8 @@ abstract class BaseBindingActivity<VB : ViewBinding> :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentViewWithBinding()
         BackgroundLibrary.inject2(this)
+        setContentViewWithBinding()
         initActivity()
     }
 

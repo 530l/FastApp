@@ -51,7 +51,7 @@
         android:src="@drawable/logo_big_ic" />
 
 
-    <com.fastapp.view.skin.MyBLLinearLayout
+    <com.noober.background.view.BLLinearLayout
         android:id="@+id/bLLinearLayout"
         android:layout_width="@dimen/dp_100"
         android:layout_height="@dimen/dp_100"

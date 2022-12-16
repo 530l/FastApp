@@ -4,11 +4,13 @@ package com.fastapp.ui.activity
 import com.drake.logcat.LogCat
 import com.drake.net.time.Interval
 import com.fastapp.base.BaseBindingActivity
+import com.fastapp.config.UserConfig
 import com.fastapp.databinding.SplashActivityBinding
 import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ImmersionBar
 import com.therouter.TheRouter
 import dagger.hilt.android.AndroidEntryPoint
+import skin.support.SkinCompatManager
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 import kotlin.math.ceil
