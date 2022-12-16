@@ -2,15 +2,12 @@ package com.fastapp.ui.skin
 
 
 import android.graphics.Color
-import android.os.Bundle
 import android.view.ViewGroup
 import com.drake.logcat.LogCat
 import com.fastapp.base.BaseBindingActivity
 import com.fastapp.config.UserConfig
 import com.fastapp.databinding.Sk1ActivityBinding
-import com.hjq.bar.TitleBar
 import com.hjq.shape.layout.ShapeLinearLayout
-import com.noober.background.drawable.DrawableCreator
 import com.therouter.router.Route
 import skin.support.SkinCompatManager
 
@@ -56,38 +53,52 @@ class Skin1Activity : BaseBindingActivity<Sk1ActivityBinding>() {
             //为了测试，  targetSdkVersion 28  /sdcar/skin/orange.skin
 //            loadSkin("orange.skin", CustomSDCardLoader.SKIN_LOADER_STRATEGY_SDCARD)
         }
+
     }
 
     private fun loadSkin(skinName: String, strategy: Int) {
-        UserConfig.skinModel = skinName
         SkinCompatManager.getInstance().loadSkin(skinName, skinCompatManager, strategy)
+        finish()
+    }
+
+
+    override fun initData() {
+        adapterSkinShapeLinearLayout(binding.shape1, binding.shape2, binding.shape3)
     }
 
     /**
-     * 递归获取 ViewGroup 中的 TitleBar 对象
+     * 递归获取 ViewGroup
      */
-    fun obtainSkin(group: ViewGroup?) {
+    private fun obtainSkin(group: ViewGroup?) {
         if (group == null) {
             return
         }
-        for (i in 0 until group.childCount) {
-            val view = group.getChildAt(i)
-            if (view is ShapeLinearLayout) {
-                val a = view as ShapeLinearLayout
-
+        val skinModel = UserConfig.skinModel
+        var colorStr = "#333333"
+        when (skinModel) {
+            "black" -> {
+                colorStr = "#333333"
             }
-            if (view is ViewGroup) {
-                val titleBar = obtainSkin(view)
-                if (titleBar != null) {
-                    return titleBar
-                }
+            "green" -> {
+                colorStr = "#4CAF50"
+            }
+            "orange.skin" -> {
+                colorStr = "#FF9800"
             }
         }
 
+        for (i in 0..group.childCount) {
+            val view = group.getChildAt(i)
+            if (view is ShapeLinearLayout) {
+                view.shapeDrawableBuilder
+                    .setSolidColor(Color.parseColor(colorStr))
+                    .intoBackground();
+            }
+            //子view
+            if (view is ViewGroup) {
+                obtainSkin(view)
+            }
+        }
     }
 
-    override fun initData() {
-
-
-    }
 }

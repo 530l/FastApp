@@ -27,8 +27,8 @@ import com.fastapp.config.glide.GlideApp
 import com.fastapp.config.http.GsonConvert
 import com.fastapp.config.http.MyRequestInterceptor
 import com.fastapp.config.http.RefreshTokenInterceptor
-import com.fastapp.ui.skin.loader.CustomSDCardLoader
-import com.fastapp.ui.skin.loader.ZipSDCardLoader
+import com.fastapp.ui.skin.CustomSDCardLoader
+import com.fastapp.ui.skin.ZipSDCardLoader
 import com.fastapp.utils.ActivityManager
 import com.fastapp.view.BubbleDialog
 import com.hjq.bar.TitleBar

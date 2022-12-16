@@ -1,4 +1,4 @@
-package com.fastapp.ui.skin.loader;
+package com.fastapp.ui.skin;
 
 import android.content.Context;
 import android.content.res.ColorStateList;

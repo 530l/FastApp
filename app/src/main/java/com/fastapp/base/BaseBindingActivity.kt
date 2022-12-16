@@ -1,20 +1,25 @@
 package com.fastapp.base
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.SkinAppCompatDelegateImpl
 import androidx.viewbinding.ViewBinding
+import com.drake.logcat.LogCat
 import com.dylanc.viewbinding.base.ActivityBinding
 import com.dylanc.viewbinding.base.ActivityBindingDelegate
 import com.fast.base.BaseActivity
 import com.fastapp.R
 import com.fastapp.action.TitleBarAction
 import com.fastapp.action.ToastAction
+import com.fastapp.config.UserConfig
 import com.gyf.immersionbar.ImmersionBar
 import com.hjq.bar.TitleBar
+import com.hjq.shape.layout.ShapeLinearLayout
 import com.noober.background.BackgroundLibrary
+import skin.support.utils.SkinPreference
 
 abstract class BaseBindingActivity<VB : ViewBinding> :
     BaseActivity(), ToastAction, TitleBarAction,
@@ -120,6 +125,8 @@ abstract class BaseBindingActivity<VB : ViewBinding> :
     override fun getDelegate(): AppCompatDelegate {
         return SkinAppCompatDelegateImpl.get(this, this)
     }
+
+
 
 
 }
