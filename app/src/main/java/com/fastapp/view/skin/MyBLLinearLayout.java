@@ -32,20 +32,21 @@ public class MyBLLinearLayout extends BLLinearLayout implements SkinCompatSuppor
     }
 
     //规范，颜色的规范，这个主题用什么色值，统一处理
+    //可以向后台动态下发一份主题，对应的值
     @Override
     public void applySkin() {
         String skinModel = UserConfig.INSTANCE.getSkinModel();
-        LogCat.i(skinModel,"skinModel");
+        LogCat.i(skinModel, "skinModel");
         Drawable drawable = null;
         if ("black".equals(skinModel)) {
             drawable = new DrawableCreator.Builder()
                     .setSolidColor(Color.parseColor("#333333"))
                     .build();
-        }else if ("green".equals(skinModel)){
+        } else if ("green".equals(skinModel)) {
             drawable = new DrawableCreator.Builder()
                     .setSolidColor(Color.parseColor("#4CAF50"))
                     .build();
-        }else if ("orange.skin".equals(skinModel)){
+        } else if ("orange.skin".equals(skinModel)) {
             drawable = new DrawableCreator.Builder()
                     .setSolidColor(Color.parseColor("#FF9800"))
                     .build();

@@ -57,9 +57,16 @@
         android:layout_height="@dimen/dp_100"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"
+        android:visibility="gone"
         app:bl_shape="rectangle"
         app:bl_solid_color="@color/common_sk1_color"
         app:bl_stroke_width="1dp" />
 
 
+    <com.hjq.shape.layout.ShapeLinearLayout
+        app:shape="rectangle"
+        android:layout_gravity="center_horizontal"
+        app:shape_solidColor="@color/common_sk1_color"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_100"/>
 </LinearLayout>

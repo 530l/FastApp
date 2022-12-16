@@ -12,7 +12,7 @@ object UserConfig {
     /** 懒读取, 每次写入都会更新内存/磁盘, 但是读取仅第一次会读取磁盘, 后续一直使用内存中, 有效减少ANR */
     var userId: String by serialLazy()
 
-    var skinModel: String by serial() /** 每次都读写磁盘 */
+    var skinModel: String =""/** 每次都读写磁盘 */
 
 
 
