@@ -69,4 +69,5 @@ dependencies {
     //BackgroundLibrary
     api 'androidx.appcompat:appcompat:1.5.1'
     api 'com.github.JavaNoober.BackgroundLibrary:libraryx:1.7.5'//配合换肤使用，xml可以预览兼容
+    api 'com.blankj:utilcodex:1.31.1'
 }

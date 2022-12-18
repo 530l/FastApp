@@ -13,12 +13,12 @@ class PaintedSkinActivity : BaseBindingActivity<PaintedSkActivityBinding>() {
     override fun initView() {
         binding.sk1btn.setOnClickListener {
             //换肤
-            ThemeSkinService.getInstance().switchThemeSkin(1);
+            ThemeSkinService.getInstance().switchThemeSkin(0)
         }
     }
 
     override fun initData() {
-
+        ThemeSkinService.getInstance().switchThemeSkin(1);
     }
 
 

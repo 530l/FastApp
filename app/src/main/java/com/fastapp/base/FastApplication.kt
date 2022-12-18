@@ -27,9 +27,7 @@ import com.drake.net.okhttp.setDialogFactory
 import com.drake.net.okhttp.setRequestInterceptor
 import com.drake.statelayout.StateConfig
 import com.fastapp.R
-import com.fastapp.config.AppConfig
-import com.fastapp.config.GlogConfig
-import com.fastapp.config.TitleBarConfig
+import com.fastapp.config.*
 import com.fastapp.config.glide.GlideApp
 import com.fastapp.config.http.GsonConvert
 import com.fastapp.config.http.MyRequestInterceptor
@@ -41,6 +39,7 @@ import com.hjq.bar.TitleBar
 import com.hjq.gson.factory.GsonFactory
 import com.hjq.toast.ToastUtils
 import com.noober.background.BLAutoInjectController
+import com.noober.background.common.ResourceUtils
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.MaterialHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
@@ -90,6 +89,17 @@ class FastApplication : Application() {
 //            .loadSkin()
 
         WindowManager.getInstance().init(this, OptionFactory())
+        copySkinPack()
+    }
+
+    private fun copySkinPack() {
+        //  /storage/emulated/0/Android/data/com.fastapp.debug/files/.SkinPack/Night.skin
+        com.blankj.utilcode.util.ResourceUtils.copyFileFromAssets(
+            "night/Night.skin", SKIN_PACK_PATH + NIGHT_SKIN_PACK_NAME
+        )
+        com.blankj.utilcode.util.ResourceUtils.copyFileFromAssets(
+            ASSETS_SPRING_FESTIVAL_SKIN_PACK, SKIN_PACK_PATH + SPRING_FESTIVAL_SKIN_PACK_NAME
+        )
     }
 
     private fun initSdk(application: Application) {
@@ -104,6 +114,7 @@ class FastApplication : Application() {
         initConnectivityManager(application)//手机网络监听
         initPreferenceHolder()
     }
+
 
     private fun initSmartRefreshLayout() {
         // 全局缺省页配置 [https://github.com/liangjingkanji/StateLayout]
