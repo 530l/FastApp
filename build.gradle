@@ -5,6 +5,9 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
     id 'cn.therouter' version '1.1.1' apply false
     id 'com.google.dagger.hilt.android' version '2.44' apply false
+
+//    classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.10' // 如果不使用AutoPlugin可以不添加
+
 }
 
 

@@ -23,10 +23,23 @@ android {
     lint {
         baseline = file("lint-baseline.xml")
     }
+//    sourceSets {
+//        main {
+//            res.srcDirs = ['src/main/res-orange']
+//
+//        }
+//    }
     sourceSets {
         main {
-            res.srcDirs = ['src/main/res-orange']
+            res.srcDirs = ['src/main/res']
         }
     }
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = "xxx.skin"
+        }
+    }
+
+
 }
 

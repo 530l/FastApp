@@ -49,17 +49,24 @@ dependencies {
     api 'io.github.lucksiege:compress:v3.10.7'// compress
     ////////////////////换肤///////////////////
     // skin-support
-//    api 'skin.support:skin-support:4.0.5'
-//    api 'skin.support:skin-support-appcompat:4.0.5'
-//    api 'skin.support:skin-support-design:4.0.5'
-//    api 'skin.support:skin-support-cardview:4.0.5'
-//    api 'skin.support:skin-support-constraint-layout:4.0.5'
-    api 'com.github.littlefogcat.skin-support:skin-support:4.0.7'
-    api 'com.github.littlefogcat.skin-support:skin-support-appcompat:4.0.7'
-    api 'com.github.littlefogcat.skin-support:skin-support-material:4.0.7'
-    api 'com.github.littlefogcat.skin-support:skin-support-cardview:4.0.7'
-    api 'com.github.littlefogcat.skin-support:skin-support-constraintlayout:4.0.7'
-    ////////////////////换肤///////////////////
+//    api 'com.github.littlefogcat.skin-support:skin-support:4.0.7'
+//    api 'com.github.littlefogcat.skin-support:skin-support-appcompat:4.0.7'
+//    api 'com.github.littlefogcat.skin-support:skin-support-material:4.0.7'
+//    api 'com.github.littlefogcat.skin-support:skin-support-cardview:4.0.7'
+//    api 'com.github.littlefogcat.skin-support:skin-support-constraintlayout:4.0.7'
+
+    //PaintedSkin
+    api 'com.github.CoderAlee:Reflex:1.2.0'// 依赖的反射库
+    api 'com.github.CoderAlee.PaintedSkin:painted-skin:3.5.2.1'// 核心库
+    api 'com.github.CoderAlee.PaintedSkin:standard-plugin:3.5.2.1'
+    // StandardPlugin 与 AutoPlugin 只需添加一个
+//    annotationProcessor 'com.github.CoderAlee.PaintedSkin:auto-plugin:TAG'
+//    implementation 'com.github.CoderAlee.PaintedSkin:auto-plugin:TAG'
+    //如果项目中的ConstraintLayout需要换肤则引入
+    api 'com.github.CoderAlee.PaintedSkin:constraintlayout-compat:3.5.2.1'
+    // 需要替换字体库时引入
+    api 'com.github.CoderAlee.PaintedSkin:typeface-plugin:3.5.2.1'
+    //BackgroundLibrary
     api 'androidx.appcompat:appcompat:1.5.1'
     api 'com.github.JavaNoober.BackgroundLibrary:libraryx:1.7.5'//配合换肤使用，xml可以预览兼容
 }

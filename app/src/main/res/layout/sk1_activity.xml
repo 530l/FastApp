@@ -51,41 +51,12 @@
         android:src="@drawable/logo_big_ic" />
 
 
+    <com.noober.background.view.BLLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_300"
+        android:layout_gravity="center"
+        app:bl_corners_radius="@dimen/dp_10"
+        app:bl_solid_color="@color/common_sk1_color" />
 
-
-
-    <com.hjq.shape.layout.ShapeLinearLayout
-        android:id="@+id/shape1"
-        android:layout_width="@dimen/dp_100"
-        android:layout_height="@dimen/dp_100"
-        android:layout_gravity="center_horizontal"
-        app:shape="rectangle"
-        app:shape_solidColor="@color/common_sk1_color" />
-
-    <com.hjq.shape.layout.ShapeLinearLayout
-        android:id="@+id/shape2"
-        android:layout_width="@dimen/dp_100"
-        android:layout_height="@dimen/dp_100"
-        android:layout_gravity="center_horizontal"
-        app:shape="rectangle"
-        android:orientation="vertical"
-        app:shape_solidColor="@color/common_sk1_color">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </com.hjq.shape.layout.ShapeLinearLayout>
-
-    <com.hjq.shape.layout.ShapeLinearLayout
-        android:id="@+id/shape3"
-        android:layout_width="@dimen/dp_100"
-        android:layout_height="@dimen/dp_100"
-        android:layout_gravity="center_horizontal"
-        app:shape="rectangle"
-        app:shape_solidColor="@color/common_sk1_color" />
 
 </LinearLayout>

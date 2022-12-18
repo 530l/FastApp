@@ -1,5 +1,12 @@
 package com.fastapp.base
 
+//import com.fastapp.ui.skin.CustomSDCardLoader
+//import com.fastapp.ui.skin.ZipSDCardLoader
+//import skin.support.SkinCompatManager
+//import skin.support.app.SkinAppCompatViewInflater
+//import skin.support.app.SkinCardViewInflater
+//import skin.support.constraint.app.SkinConstraintViewInflater
+//import skin.support.design.app.SkinMaterialViewInflater
 import android.app.Activity
 import android.app.Application
 import android.net.ConnectivityManager
@@ -27,8 +34,7 @@ import com.fastapp.config.glide.GlideApp
 import com.fastapp.config.http.GsonConvert
 import com.fastapp.config.http.MyRequestInterceptor
 import com.fastapp.config.http.RefreshTokenInterceptor
-import com.fastapp.ui.skin.CustomSDCardLoader
-import com.fastapp.ui.skin.ZipSDCardLoader
+import com.fastapp.ui.paintedskin.OptionFactory
 import com.fastapp.utils.ActivityManager
 import com.fastapp.view.BubbleDialog
 import com.hjq.bar.TitleBar
@@ -42,11 +48,8 @@ import com.tencent.mmkv.MMKV
 import com.tencent.mmkv.MMKVLogLevel
 import dagger.hilt.android.HiltAndroidApp
 import okhttp3.Cache
-import skin.support.SkinCompatManager
-import skin.support.app.SkinAppCompatViewInflater
-import skin.support.app.SkinCardViewInflater
-import skin.support.constraint.app.SkinConstraintViewInflater
-import skin.support.design.app.SkinMaterialViewInflater
+import org.alee.component.skin.page.WindowManager
+import org.alee.component.skin.service.Config
 import java.util.concurrent.TimeUnit
 
 
@@ -59,6 +62,14 @@ class FastApplication : Application() {
 
         init {
             BLAutoInjectController.setEnableAutoInject(false)
+            //SkinMode.REPLACE_ALL  所有View都参与换肤，添加了skin:enable="false" 标签的View 将不参与换肤;
+            //SkinMode.REPLACE_MARKED 只有添加了**skin:enable="true"**标签的View才参与换肤；
+            //SkinMode.DO_NOT_REPLACE 任何View都不参与换肤
+            Config.getInstance().skinMode = Config.SkinMode.REPLACE_ALL
+            //调试模式下将输出框架内的一些关键节点Log以及换肤任务执行耗时时长；
+            //严格模式下如果框架内出现错误将直接抛出异常；
+            Config.getInstance().isEnableDebugMode = true
+            Config.getInstance().isEnableStrictMode = true
         }
     }
 
@@ -67,18 +78,18 @@ class FastApplication : Application() {
         super.onCreate()
         install = this
         initSdk(this)
-        SkinCompatManager.withoutActivity(this)
-            .addStrategy(CustomSDCardLoader())// 自定义加载策略，指定SDCard路径
-            .addStrategy(ZipSDCardLoader())// 自定义加载策略，获取zip包中的资源
-            .addInflater(SkinAppCompatViewInflater()) // 基础控件换肤初始化
-            .addInflater(SkinMaterialViewInflater()) // material design 控件换肤初始化[可选]
-            .addInflater(SkinConstraintViewInflater()) // ConstraintLayout 控件换肤初始化[可选]
-            .addInflater(SkinCardViewInflater()) // CardView v7 控件换肤初始化[可选]
-            .setSkinStatusBarColorEnable(true) // 关闭状态栏换肤，默认打开[可选]
-            .setSkinWindowBackgroundEnable(true) // 关闭windowBackground换肤，默认打开[可选]
-            .loadSkin()
+//        SkinCompatManager.withoutActivity(this)
+//            .addStrategy(CustomSDCardLoader())// 自定义加载策略，指定SDCard路径
+//            .addStrategy(ZipSDCardLoader())// 自定义加载策略，获取zip包中的资源
+//            .addInflater(SkinAppCompatViewInflater()) // 基础控件换肤初始化
+//            .addInflater(SkinMaterialViewInflater()) // material design 控件换肤初始化[可选]
+//            .addInflater(SkinConstraintViewInflater()) // ConstraintLayout 控件换肤初始化[可选]
+//            .addInflater(SkinCardViewInflater()) // CardView v7 控件换肤初始化[可选]
+//            .setSkinStatusBarColorEnable(true) // 关闭状态栏换肤，默认打开[可选]
+//            .setSkinWindowBackgroundEnable(true) // 关闭windowBackground换肤，默认打开[可选]
+//            .loadSkin()
 
-
+        WindowManager.getInstance().init(this, OptionFactory())
     }
 
     private fun initSdk(application: Application) {

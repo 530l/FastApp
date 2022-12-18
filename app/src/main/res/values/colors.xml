@@ -25,4 +25,9 @@
 
     <color name="common_sk1_color">#F44336</color>
     <color name="common_sk2_color">#007AFF</color>
+    <color name="common_sk1_orange">#FF9800</color>
+
+    <color name="textColor">#FFFFFFFF</color>
+
+
 </resources>

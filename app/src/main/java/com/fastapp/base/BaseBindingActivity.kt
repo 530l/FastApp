@@ -5,7 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.app.SkinAppCompatDelegateImpl
+//import androidx.appcompat.app.SkinAppCompatDelegateImpl
 import androidx.viewbinding.ViewBinding
 import com.drake.logcat.LogCat
 import com.dylanc.viewbinding.base.ActivityBinding
@@ -19,7 +19,7 @@ import com.gyf.immersionbar.ImmersionBar
 import com.hjq.bar.TitleBar
 import com.hjq.shape.layout.ShapeLinearLayout
 import com.noober.background.BackgroundLibrary
-import skin.support.utils.SkinPreference
+//import skin.support.utils.SkinPreference
 
 abstract class BaseBindingActivity<VB : ViewBinding> :
     BaseActivity(), ToastAction, TitleBarAction,
@@ -122,11 +122,9 @@ abstract class BaseBindingActivity<VB : ViewBinding> :
         overridePendingTransition(R.anim.left_in_activity, R.anim.left_out_activity)
     }
 
-    override fun getDelegate(): AppCompatDelegate {
-        return SkinAppCompatDelegateImpl.get(this, this)
-    }
-
-
+//    override fun getDelegate(): AppCompatDelegate {
+//        return SkinAppCompatDelegateImpl.get(this, this)
+//    }
 
 
 }

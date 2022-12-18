@@ -14,6 +14,13 @@
     "params": {}
   },
   {
+    "path": "http://fastapp/paintedskin",
+    "className": "com.fastapp.ui.paintedskin.PaintedSkinActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
     "path": "http://fastapp/guide",
     "className": "com.fastapp.ui.activity.GuideActivity",
     "action": "abc",

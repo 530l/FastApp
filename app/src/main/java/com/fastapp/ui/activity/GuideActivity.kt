@@ -11,7 +11,9 @@ class GuideActivity : BaseBindingActivity<GuideActivityBinding>() {
 
     override fun initView() {
         binding.writeGladTv.setOnClickListener {
-            TheRouter.build("http://fastapp/sk1").navigation(this)
+//            TheRouter.build("http://fastapp/sk1").navigation(this)
+            TheRouter.build("http://fastapp/paintedskin").navigation(this)
+
         }
 
         binding.readGladTv.setOnClickListener {

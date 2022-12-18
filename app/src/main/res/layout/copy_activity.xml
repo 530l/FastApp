@@ -13,6 +13,15 @@
         app:title="CopyActivity" />
 
 
+    <com.fastapp.view.MYBLLinearLayout
+        android:layout_gravity="center"
+        android:background="@color/common_confirm_text_color"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_100"/>
+
+    <com.fastapp.view.CusL
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_100"/>
     <FrameLayout
         android:id="@+id/mContainerView"
         android:layout_width="match_parent"
